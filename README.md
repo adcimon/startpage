@@ -1,3 +1,3 @@
-# Start Page
+# Startpage
 
-My personal start page.
+My personal startpage.
