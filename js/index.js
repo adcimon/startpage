@@ -31,10 +31,15 @@ const MONTHS =
 
 function main()
 {
+    initClock();
+    initSearch();
+    initLinks();
+}
+
+function initClock()
+{
     updateTime();
     window.setInterval(() => updateTime(), UPDATE_TIME_INTERVAL * 1000);
-
-    createItems();
 }
 
 function updateTime()
@@ -54,9 +59,31 @@ function updateTime()
     dateElement.innerHTML = `${weekday}, ${day} ${month} ${year}`;
 }
 
-function createItems()
+function initSearch()
 {
-    let list = document.querySelector(".item-list");
+    let input = document.querySelector(".search-input");
+    let cancel = document.querySelector(".search-cancel");
+    cancel.style.visibility = "hidden";
+
+    input.addEventListener("input", () =>
+    {
+        if( input.value !== "" && cancel.style.visibility === "hidden" )
+        {
+            cancel.style.visibility = "visible";
+        }
+    });
+
+    cancel.addEventListener("click", () =>
+    {
+        input.value = "";
+        cancel.style.visibility = "hidden";
+        input.focus();
+    });
+}
+
+function initLinks()
+{
+    let list = document.querySelector(".link-list");
 
     let tabindex = 3;
     LINKS.forEach(link =>
@@ -94,7 +121,7 @@ function createItems()
 
 function createCell( tabindex )
 {
-    let html = `<div class="item-cell"><a class="item" tabindex="${tabindex}"><img/></a></div>`;
+    let html = `<div class="link-cell"><a class="link" tabindex="${tabindex}"><img/></a></div>`;
     let template = document.createElement("template");
     template.innerHTML = html;
 
