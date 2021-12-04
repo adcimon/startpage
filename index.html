@@ -16,18 +16,21 @@
 
         <link rel="icon" href="icons/favicon.svg" type="image/x-icon"/>
         <link type="text/css" rel="stylesheet" href="css/style.css">
-        <script type="module" src="js/index.js"></script>
+        <script type="text/javascript" src="js/links.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
     
     </head>
 
 <body>
 
+    <span id="focusguard1" tabindex="1"></span>
+
     <div class="search-container">
         <div class="search-form">
             <form action="https://www.google.com/search?q=" method="get">
                 <div class="search-bar">
-                    <a href="#" class="search-icon"><img src="./icons/search.svg"/></a>
-                    <input class="search-input" type="text" name="q" autocomplete="off" placeholder="Search...">
+                    <a class="search-icon"><img src="./icons/search.svg"/></a>
+                    <input class="search-input" type="text" name="q" autocomplete="off" placeholder="Search..." tabindex="2">
                 </div>
             </form>
         </div>
@@ -35,6 +38,8 @@
 
     <div class="item-container">
     </div>
+
+    <span id="focusguard2"></span>
 
 </body>
 
