@@ -1,11 +1,63 @@
 "use strict";
 
+const UPDATE_TIME_INTERVAL = 30;
+
+const DAYS =
+[
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+];
+
+const MONTHS =
+[
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+];
+
 function main()
 {
-    let container = document.querySelector(".item-container");
+    updateTime();
+    window.setInterval(() => updateTime(), UPDATE_TIME_INTERVAL * 1000);
+
+    createItems();
+}
+
+function updateTime()
+{
+    let date = new Date();
+
+    let timeElement = document.querySelector(".clock-time");
+    timeElement.innerHTML = date.getHours() + ":" + date.getMinutes();
+
+    let dateElement = document.querySelector(".clock-date");
+    let weekday = DAYS[date.getDay()];
+    let day = date.getDate();
+    let month = MONTHS[date.getMonth()];
+    let year = date.getFullYear();
+    dateElement.innerHTML = `${weekday}, ${day} ${month} ${year}`;
+}
+
+function createItems()
+{
+    let list = document.querySelector(".item-list");
 
     let tabindex = 3;
-    Links.forEach(link =>
+    LINKS.forEach(link =>
     {
         let cell = createCell(tabindex);
 
@@ -17,7 +69,7 @@ function main()
         let img = a.querySelector("img");
         img.src = link.icon;
 
-        container.appendChild(cell);
+        list.appendChild(cell);
 
         tabindex++;
     });
