@@ -48,7 +48,7 @@ function updateTime()
 
     let timeElement = document.querySelector(".clock-time");
     let hours = date.getHours();
-    let minutes = date.getMinutes().toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping:false });
+    let minutes = date.getMinutes().toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false });
     timeElement.innerHTML = `${hours}:${minutes}`
 
     let dateElement = document.querySelector(".clock-date");
@@ -67,9 +67,14 @@ function initSearch()
 
     input.addEventListener("input", () =>
     {
-        if( input.value !== "" && cancel.style.visibility === "hidden" )
+        if( input.value !== "" && cancel.style.visibility !== "visible" )
         {
             cancel.style.visibility = "visible";
+        }
+
+        if( input.value === "" && cancel.style.visibility !== "hidden" )
+        {
+            cancel.style.visibility = "hidden";
         }
     });
 
