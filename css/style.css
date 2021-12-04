@@ -103,6 +103,23 @@ body
     color: hsla(255, 100%, 100%, 0.7);
 }
 
+.clock-zone
+{
+    /* Space */
+    margin-top: 10px;
+    padding: 5px;
+
+    /* Text */
+    text-align: center;
+
+    /* Style */
+    background-color: hsla(0, 0%, 19%, 1);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 1px 6px 0 hsla(0, 0%, 9%, 1);
+    color: hsla(255, 100%, 100%, 0.7);
+}
+
 .search-container
 {
     /* Layout */
@@ -117,7 +134,7 @@ body
     width: 100%;
 
     /* Space */
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .search-bar
