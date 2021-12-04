@@ -23,12 +23,19 @@
 
 <body>
 
+    <div class="clock-container">
+        <div class="clock">
+            <div class="clock-time"></div>
+            <div class="clock-date"></div>
+        </div>
+    </div>
+
     <span id="focusguard1" tabindex="1"></span>
 
     <div class="search-container">
-        <div class="search-form">
+        <div class="search-bar">
             <form action="https://www.google.com/search?q=" method="get">
-                <div class="search-bar">
+                <div class="search-line">
                     <a class="search-icon"><img src="./icons/search.svg"/></a>
                     <input class="search-input" type="text" name="q" autocomplete="off" tabindex="2">
                 </div>
@@ -37,6 +44,8 @@
     </div>
 
     <div class="item-container">
+        <div class="item-list">
+        </div>
     </div>
 
     <span id="focusguard2"></span>
