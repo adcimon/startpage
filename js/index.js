@@ -1,33 +1,6 @@
 "use strict";
 
-const UPDATE_TIME_INTERVAL = 30;
-
-const DAYS =
-[
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday"
-];
-
-const MONTHS =
-[
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-];
+var timeZone = "Europe/Madrid";
 
 function main()
 {
@@ -38,25 +11,53 @@ function main()
 
 function initClock()
 {
-    updateTime();
-    window.setInterval(() => updateTime(), UPDATE_TIME_INTERVAL * 1000);
+    let zoneElement = document.querySelector(".clock-zone");
+    let index = 0;
+    TIME_ZONES.forEach(zone =>
+    {
+        let option = document.createElement("option");
+        option.value = index;
+        option.innerHTML = zone;
+        zoneElement.appendChild(option);
+
+        index++;
+    });
+
+    zoneElement.selectedIndex = TIME_ZONES.indexOf(timeZone);
+    zoneElement.addEventListener("change", () =>
+    {
+        timeZone = TIME_ZONES[zoneElement.selectedIndex];
+        updateTime(timeZone);
+    });
+
+    updateTime(timeZone);
+    window.setInterval(() => updateTime(timeZone), 1 * 1000);
 }
 
-function updateTime()
+function updateTime( timeZone )
 {
+    const locale = "en-UK";
     let date = new Date();
 
     let timeElement = document.querySelector(".clock-time");
-    let hours = date.getHours();
-    let minutes = date.getMinutes().toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false });
-    timeElement.innerHTML = `${hours}:${minutes}`
+    let timeLocale = date.toLocaleTimeString(locale,
+    {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+        timeZone: timeZone
+    });
+    timeElement.innerHTML = timeLocale;
 
     let dateElement = document.querySelector(".clock-date");
-    let weekday = DAYS[date.getDay()];
-    let day = date.getDate();
-    let month = MONTHS[date.getMonth()];
-    let year = date.getFullYear();
-    dateElement.innerHTML = `${weekday}, ${day} ${month} ${year}`;
+    let dateLocale = date.toLocaleDateString(locale,
+    {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    });
+    dateElement.innerHTML = dateLocale;
 }
 
 function initSearch()
