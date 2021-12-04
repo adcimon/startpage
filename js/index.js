@@ -42,7 +42,9 @@ function updateTime()
     let date = new Date();
 
     let timeElement = document.querySelector(".clock-time");
-    timeElement.innerHTML = date.getHours() + ":" + date.getMinutes();
+    let hours = date.getHours();
+    let minutes = date.getMinutes().toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping:false });
+    timeElement.innerHTML = `${hours}:${minutes}`
 
     let dateElement = document.querySelector(".clock-date");
     let weekday = DAYS[date.getDay()];
