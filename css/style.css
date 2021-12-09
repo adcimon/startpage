@@ -227,6 +227,9 @@ body
     /* Layout */
     flex: 1 1 auto;
 
+    /* Size */
+    max-width: 85%;
+
     /* Text */
     font-size: 18px;
     line-height: 30px;
