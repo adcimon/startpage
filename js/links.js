@@ -15,13 +15,6 @@ const LINKS =
         "target":       "_self"
     },
     {
-        "name":         "GitHub",
-        "icon":         "./icons/github.svg",
-        "background":   "hsla(213, 11%, 16%, 1)",
-        "url":          "https://github.com/adcimon",
-        "target":       "_self"
-    },
-    {
         "name":         "WhatsApp",
         "icon":         "./icons/whatsapp.svg",
         "background":   "hsla(130, 76%, 41%, 1)",
@@ -33,6 +26,13 @@ const LINKS =
         "icon":         "./icons/twitter.svg",
         "background":   "hsla(203, 89%, 53%, 1)",
         "url":          "https://twitter.com/adcimon",
+        "target":       "_self"
+    },
+    {
+        "name":         "GitHub",
+        "icon":         "./icons/github.svg",
+        "background":   "hsla(213, 11%, 16%, 1)",
+        "url":          "https://github.com/adcimon",
         "target":       "_self"
     },
     {
