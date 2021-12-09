@@ -3,7 +3,7 @@ const LINKS =
     {
         "name":         "New Window",
         "icon":         "./icons/plus.svg",
-        "background":   "linear-gradient(to right, hsla(190, 100%, 43%, 1), hsla(195, 100%, 34%, 1))",
+        "background":   "linear-gradient(to left, hsla(272, 76%, 53%, 1), hsla(260, 100%, 44%, 1))",
         "url":          "#",
         "target":       "_blank"
     },
