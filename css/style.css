@@ -17,38 +17,6 @@
     --link-list-width: 80%;
 }
 
-@media (orientation: portrait)
-{
-    .clock-container
-    {
-        margin-top: 10px;
-    }
-}
-
-@media screen and (max-width: 850px)
-{
-    :root
-    {
-        --link-list-width: 100%;
-    }
-}
-
-@media screen and (max-width: 700px)
-{
-    :root
-    {
-        --cell-width: 150px;
-        --cell-height: 102px;
-        --link-icon-width: 40px;
-        --link-icon-height: 40px;
-    }
-
-    .search-input
-    {
-        max-width: 75%;
-    }
-}
-
 *
 {
     /* Size */
@@ -255,7 +223,12 @@ body
     padding: 5px;
 
     /* Style */
+    background-image: url("../icons/cross.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70% 70%;
     border-radius: 100%;
+    filter: invert(1) brightness(65%);
     transform: translate(-5px, 0);
     transition: background-color 0.3s ease-out;
 }
@@ -263,14 +236,8 @@ body
 .search-cancel:hover
 {
     /* Style */
-    background-color: hsla(255, 100%, 100%, 0.2);
+    background-color: hsla(0, 0%, 16%, 0.2);
     cursor: pointer;
-}
-
-.search-cancel img
-{
-    /* Style */
-    filter: invert(1) brightness(65%);
 }
 
 .link-container
@@ -359,4 +326,36 @@ body
     /* Size */
     width: var(--link-icon-width);
     height: var(--link-icon-height);
+}
+
+@media screen and (orientation: portrait)
+{
+    .clock-container
+    {
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 850px)
+{
+    :root
+    {
+        --link-list-width: 100%;
+    }
+}
+
+@media screen and (max-width: 700px)
+{
+    :root
+    {
+        --cell-width: 150px;
+        --cell-height: 102px;
+        --link-icon-width: 40px;
+        --link-icon-height: 40px;
+    }
+
+    .search-input
+    {
+        max-width: 75%;
+    }
 }
