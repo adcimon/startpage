@@ -36,13 +36,9 @@
 
     <div class="search-container">
         <div class="search-bar">
-            <form class="search-form" action="https://www.google.com/search?q=" method="get">
-                <div class="search-line">
-                    <a class="search-icon"><img src="./icons/search.svg"/></a>
-                    <input class="search-input" type="text" name="q" autocomplete="off" tabindex="2">
-                    <a class="search-cancel"><img src="./icons/cross.svg"/></a>
-                </div>
-            </form>
+            <form id="searchForm" action="https://www.google.com/search?q=" method="get"></form>
+            <input class="search-input" type="text" form="searchForm" name="q" autocomplete="off" tabindex="2">
+            <a class="search-cancel"><img src="./icons/cross.svg"/></a>
         </div>
     </div>
 
