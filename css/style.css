@@ -162,7 +162,7 @@ body
 .search-bar
 {
     /* Layout */
-    display: flex;
+    display: inline-flex;
     align-content: stretch;
     align-items: center;
     flex-direction: row;
