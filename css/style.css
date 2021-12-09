@@ -166,6 +166,13 @@ body
     min-width: 300px;
 }
 
+.search-form
+{
+    /* Size */
+    width: 100%;
+    height: 100%;
+}
+
 .search-line
 {
     /* Layout */
@@ -202,8 +209,11 @@ body
     flex: 0 1 auto;
 
     /* Size */
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
+
+    /* Space */
+    padding: 3px;
 }
 
 .search-icon img
@@ -216,12 +226,6 @@ body
 {
     /* Layout */
     flex: 1 1 auto;
-
-    /* Size */
-    width: auto;
-
-    /* Space */
-    margin-left: 5px;
 
     /* Text */
     font-size: 18px;
