@@ -17,7 +17,7 @@ function initClock()
     {
         let option = document.createElement("option");
         option.value = index;
-        option.innerHTML = zone;
+        option.innerHTML = zone.replace('_', ' ');
         zoneElement.appendChild(option);
 
         index++;
