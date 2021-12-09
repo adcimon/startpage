@@ -12,6 +12,28 @@
     --cell-width: 220px;
     --cell-height: 150px;
     --font: 'MyFont', 'Noto Sans', sans-serif;
+    --link-icon-width: 60px;
+    --link-icon-height: 60px;
+    --link-list-width: 80%;
+}
+
+@media screen and (max-width: 850px)
+{
+    :root
+    {
+        --link-list-width: 100%;
+    }
+}
+
+@media screen and (max-width: 700px)
+{
+    :root
+    {
+        --cell-width: 150px;
+        --cell-height: 102px;
+        --link-icon-width: 40px;
+        --link-icon-height: 40px;
+    }
 }
 
 *
@@ -271,7 +293,7 @@ body
     justify-content: center;
 
     /* Size */
-    width: 100%;
+    width: var(--link-list-width);
 }
 
 .link-cell
@@ -327,6 +349,6 @@ body
 .link img
 {
     /* Size */
-    width: 60px;
-    height: 60px;
+    width: var(--link-icon-width);
+    height: var(--link-icon-height);
 }
