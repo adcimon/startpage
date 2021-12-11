@@ -85,6 +85,8 @@ function initSearch()
         cancel.style.visibility = "hidden";
         input.focus();
     });
+
+    input.focus();
 }
 
 function initLinks()

@@ -25,35 +25,35 @@ const LINKS =
         "name":         "Twitter",
         "icon":         "./icons/twitter.svg",
         "background":   "hsla(203, 89%, 53%, 1)",
-        "url":          "https://twitter.com/adcimon",
+        "url":          "https://twitter.com/home",
         "target":       "_self"
     },
     {
         "name":         "GitHub",
         "icon":         "./icons/github.svg",
         "background":   "hsla(213, 11%, 16%, 1)",
-        "url":          "https://github.com/adcimon",
+        "url":          "https://github.com",
         "target":       "_self"
     },
     {
         "name":         "Google Mail",
         "icon":         "./icons/gmail.svg",
         "background":   "hsla(255, 100%, 100%, 1)",
-        "url":          "https://www.google.com/mail/",
+        "url":          "https://www.google.com/mail",
         "target":       "_self"
     },
     {
         "name":         "Google Drive",
         "icon":         "./icons/gdrive.svg",
         "background":   "hsla(255, 100%, 100%, 1)",
-        "url":          "https://www.google.com/drive/",
+        "url":          "https://drive.google.com/drive/my-drive",
         "target":       "_self"
     },
     {
         "name":         "Google Maps",
         "icon":         "./icons/gmaps.svg",
         "background":   "hsla(255, 100%, 100%, 1)",
-        "url":          "https://www.youtube.com/",
+        "url":          "https://www.google.com/maps",
         "target":       "_self"
     }
 ];
