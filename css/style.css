@@ -230,7 +230,7 @@ body
     background-size: 70% 70%;
     border-radius: 100%;
     filter: invert(1) brightness(65%);
-    transform: translate(-5px, 0);
+    transform: translate(-10px, 0);
     transition: background-color 0.3s ease-out;
 }
 
