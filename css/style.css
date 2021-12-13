@@ -160,7 +160,7 @@ body
     height: 50px;
 
     /* Space */
-    gap: 5px;
+    gap: 15px;
 
     /* Style */
     background-color: hsla(0, 0%, 19%, 1);
@@ -178,7 +178,7 @@ body
     /* Style */
     content: url("../icons/search.svg");
     filter: invert(1) brightness(65%);
-    transform: translate(5px, 0);
+    transform: translate(10px, 0);
 }
 
 .search-bar:focus-within
