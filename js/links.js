@@ -2,8 +2,8 @@ const LINKS =
 [
     {
         "name":         "New Window",
-        "icon":         "./icons/plus.svg",
-        "background":   "linear-gradient(to left, hsla(272, 76%, 53%, 1), hsla(260, 100%, 44%, 1))",
+        "icon":         "./icons/favicon/favicon.svg",
+        "background":   "hsla(217, 19%, 38%, 1)",
         "url":          "#",
         "target":       "_blank"
     },
