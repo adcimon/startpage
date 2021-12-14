@@ -161,7 +161,7 @@ body
     height: var(--search-bar-height);
 
     /* Space */
-    gap: 10px;
+    gap: 5px;
 
     /* Style */
     background-color: hsla(0, 0%, 19%, 1);
