@@ -41,6 +41,7 @@ body
 {
     /* Layout */
     display: block;
+    overflow-x: hidden;
 
     /* Position */
     position: relative;
@@ -54,7 +55,6 @@ body
     /* Style */
     background: var(--background);
     color: hsla(0, 0%, 100%, 1);
-    overflow-x: hidden;
 }
 
 .clock-container
