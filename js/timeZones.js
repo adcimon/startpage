@@ -1,4 +1,4 @@
-const TIME_ZONES =
+const TimeZones =
 [
     'Africa/Accra',
     'Africa/Cairo',

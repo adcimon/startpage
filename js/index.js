@@ -13,7 +13,7 @@ function initClock()
 {
     let zoneElement = document.querySelector(".clock-zone");
     let index = 0;
-    TIME_ZONES.forEach(zone =>
+    TimeZones.forEach(zone =>
     {
         let option = document.createElement("option");
         option.value = index;
@@ -23,10 +23,10 @@ function initClock()
         index++;
     });
 
-    zoneElement.selectedIndex = TIME_ZONES.indexOf(timeZone);
+    zoneElement.selectedIndex = TimeZones.indexOf(timeZone);
     zoneElement.addEventListener("change", () =>
     {
-        timeZone = TIME_ZONES[zoneElement.selectedIndex];
+        timeZone = TimeZones[zoneElement.selectedIndex];
         updateTime(timeZone);
     });
 
@@ -94,7 +94,7 @@ function initLinks()
     let list = document.querySelector(".link-list");
 
     let tabindex = 3;
-    LINKS.forEach(link =>
+    Links.forEach(link =>
     {
         let cell = createCell(tabindex);
 

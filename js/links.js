@@ -1,4 +1,4 @@
-const LINKS =
+const Links =
 [
     {
         "name":         "New Window",
