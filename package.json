@@ -4,7 +4,7 @@
 	"scripts": {
 		"start": "node esbuild.config.mjs --start",
 		"build": "node esbuild.config.mjs --build",
-		"publish": "node esbuild.config.mjs --publish",
+		"publish": "node esbuild.config.mjs --publish --repository https://github.com/adcimon/startpage --branch gh-pages",
 		"clean": "node esbuild.config.mjs --clean"
 	},
 	"author": "adcimon",

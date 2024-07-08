@@ -9,7 +9,6 @@ console.log('Args', args);
 const PUBLIC_DIRECTORY = 'public';
 const SOURCE_DIRECTORY = 'src';
 const BUILD_DIRECTORY = 'dist';
-const PUBLISH_REPOSITORY = 'https://github.com/adcimon/startpage';
 
 const INDEX_FILE = 'index.tsx';
 const OUTPUT_FILE = 'output.js';
@@ -105,17 +104,24 @@ const clean = async () => {
 	}
 };
 
-const publish = () => {
+const publish = (repository, branch) => {
 	ghpages.publish(
 		BUILD_DIRECTORY,
 		{
-			repo: PUBLISH_REPOSITORY,
+			repo: repository,
+			branch: branch,
 		},
 		(error) => {
-			console.error(
-				`Error publishing build directory ${BUILD_DIRECTORY} to publish repository ${PUBLISH_REPOSITORY}:`,
-				error,
-			);
+			if (error) {
+				console.error(
+					`Error publishing build directory ${BUILD_DIRECTORY} to publish repository ${repository}:${branch}:`,
+					error,
+				);
+			} else {
+				console.log(
+					`Build directory ${BUILD_DIRECTORY} has been published to publish repository ${repository}:${branch}`,
+				);
+			}
 		},
 	);
 };
@@ -134,5 +140,7 @@ if (args.includes('--clean')) {
 }
 
 if (args.includes('--publish')) {
-	publish();
+	const repository = getArgument('repository');
+	const branch = getArgument('branch') ?? 'gh-pages';
+	publish(repository, branch);
 }
