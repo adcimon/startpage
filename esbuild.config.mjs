@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import * as esbuild from 'esbuild';
+import * as ghpages from 'gh-pages';
 
 const args = process.argv;
 console.log('Args', args);
@@ -8,6 +9,7 @@ console.log('Args', args);
 const PUBLIC_DIRECTORY = 'public';
 const SOURCE_DIRECTORY = 'src';
 const BUILD_DIRECTORY = 'dist';
+const PUBLISH_REPOSITORY = 'https://github.com/adcimon/startpage';
 
 const INDEX_FILE = 'index.tsx';
 const OUTPUT_FILE = 'output.js';
@@ -103,6 +105,21 @@ const clean = async () => {
 	}
 };
 
+const publish = () => {
+	ghpages.publish(
+		BUILD_DIRECTORY,
+		{
+			repo: PUBLISH_REPOSITORY,
+		},
+		(error) => {
+			console.error(
+				`Error publishing build directory ${BUILD_DIRECTORY} to publish repository ${PUBLISH_REPOSITORY}:`,
+				error,
+			);
+		},
+	);
+};
+
 if (args.includes('--start')) {
 	const port = Number(getArgument('port')) || undefined;
 	await start(port);
@@ -114,4 +131,8 @@ if (args.includes('--build')) {
 
 if (args.includes('--clean')) {
 	await clean();
+}
+
+if (args.includes('--publish')) {
+	publish();
 }
