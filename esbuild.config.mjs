@@ -73,10 +73,23 @@ const start = async (port) => {
 	await ctx.serve({
 		servedir: BUILD_DIRECTORY,
 		port: port,
-		onRequest: ({ remoteAddress, method, path, status, timeInMS }) => {
-			console.info(remoteAddress, status, `${method} ${path} [${timeInMS}ms]`);
-		},
+		onRequest: handleRequest,
 	});
+};
+
+const handleRequest = ({ remoteAddress, method, path, status, timeInMS }) => {
+	const WHITE_COLOR = '\x1b[0m';
+	const RED_COLOR = '\x1b[31m';
+	const GREEN_COLOR = '\x1b[32m';
+	const CYAN_COLOR = '\x1b[36m';
+	const BASE_COLOR = WHITE_COLOR;
+
+	const methodColor = CYAN_COLOR;
+	const statusColor = status >= 400 ? RED_COLOR : GREEN_COLOR;
+
+	console.info(
+		`${remoteAddress} ${methodColor}${method}${BASE_COLOR} ${path} ${statusColor}${status}${BASE_COLOR} [${timeInMS}ms]`,
+	);
 };
 
 const build = async () => {
