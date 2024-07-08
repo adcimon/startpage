@@ -27,6 +27,7 @@ export const AppView: React.FC = (): JSX.Element => {
 					<DatetimeWidget />
 					<SearchField
 						onSearch={handleSearch}
+						autoFocus
 						sx={{
 							width: '70%',
 						}}
