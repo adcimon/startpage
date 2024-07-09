@@ -2,7 +2,7 @@ import * as React from 'react';
 import { SxProps } from '@mui/system';
 import Autocomplete, { AutocompleteChangeDetails, AutocompleteChangeReason } from '@mui/material/Autocomplete';
 import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import TextField, { TextFieldVariants } from '@mui/material/TextField';
 import { InputLabelProps } from '@mui/material/InputLabel';
 
 interface ITimezoneSelectProps {
@@ -15,6 +15,7 @@ interface ITimezoneSelectProps {
 		reason: AutocompleteChangeReason,
 		details?: AutocompleteChangeDetails<any> | undefined,
 	) => void;
+	variant?: TextFieldVariants;
 	disabled?: boolean;
 	disableClearable?: boolean;
 	InputLabelProps?: Partial<InputLabelProps>;
@@ -45,7 +46,7 @@ export const TimezoneSelect: React.FC<ITimezoneSelectProps> = (props: ITimezoneS
 					<TextField
 						{...params}
 						label={props.label}
-						variant='filled'
+						variant={props.variant}
 						hiddenLabel={props.label === undefined}
 						InputLabelProps={props.InputLabelProps}
 						inputProps={{
