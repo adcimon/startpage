@@ -9,21 +9,23 @@ type SearchFieldProps = TextFieldProps & {
 	onSearch?: (query: string) => void;
 };
 
-export const SearchField: React.FC<SearchFieldProps> = (props: SearchFieldProps): JSX.Element => {
+export const SearchField: React.FC<SearchFieldProps> = ({ onSearch, ...props }: SearchFieldProps): JSX.Element => {
 	const [value, setValue] = React.useState<string>('');
 
 	const handleChange = (event: any) => {
-		setValue(event.target.value);
 		props.onChange?.(event);
+		setValue(event.target.value);
 	};
 
 	const handleKeyDown = (event: any) => {
+		props.onKeyDown?.(event);
+
 		if (value === '') {
 			return;
 		}
 
 		if (event.key === 'Enter') {
-			props.onSearch?.(value);
+			onSearch?.(value);
 		}
 	};
 
@@ -35,18 +37,10 @@ export const SearchField: React.FC<SearchFieldProps> = (props: SearchFieldProps)
 		return (
 			<>
 				<TextField
-					inputRef={props.inputRef}
-					placeholder={props.placeholder}
+					{...props}
 					value={value}
 					onChange={handleChange}
-					onFocus={props.onFocus}
 					onKeyDown={handleKeyDown}
-					helperText={props.helperText}
-					disabled={props.disabled}
-					required={props.required}
-					autoFocus={props.autoFocus}
-					fullWidth={props.fullWidth}
-					margin={props.margin}
 					variant='filled'
 					hiddenLabel
 					InputLabelProps={{ shrink: false }}
@@ -62,7 +56,6 @@ export const SearchField: React.FC<SearchFieldProps> = (props: SearchFieldProps)
 							</InputAdornment>
 						),
 					}}
-					sx={props.sx}
 				/>
 			</>
 		);
