@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Container from '@mui/material/Container';
+import Stack from '@mui/material/Stack';
 import { BookmarkList } from '../../components/BookmarkList/BookmarkList';
 import { DatetimeWidget } from '../../components/DatetimeWidget/DatetimeWidget';
 import { SearchField } from '../../components/SearchField/SearchField';
@@ -17,24 +18,30 @@ export const AppView: React.FC = (): JSX.Element => {
 				<Container
 					maxWidth='md'
 					sx={{
-						alignItems: 'center',
-						display: 'flex',
-						flexDirection: 'column',
-						gap: '3rem',
-						height: '100%',
-						justifyContent: 'center',
-						paddingBottom: '3rem',
-						paddingTop: '3rem',
+						height: '100vh',
+						overflowY: 'auto',
 					}}>
-					<DatetimeWidget />
-					<SearchField
-						onSearch={handleSearch}
-						autoFocus
+					<Stack
 						sx={{
-							width: '70%',
-						}}
-					/>
-					<BookmarkList />
+							alignItems: 'center',
+							display: 'flex',
+							flexDirection: 'column',
+							gap: '3rem',
+							minHeight: '100%',
+							justifyContent: 'center',
+							paddingBottom: '3rem',
+							paddingTop: '3rem',
+						}}>
+						<DatetimeWidget />
+						<SearchField
+							onSearch={handleSearch}
+							autoFocus
+							sx={{
+								width: '70%',
+							}}
+						/>
+						<BookmarkList />
+					</Stack>
 				</Container>
 			</>
 		);
