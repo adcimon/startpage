@@ -7,8 +7,18 @@ import Base from '../../themes/Base/theme';
 import CustomLight from '../../themes/CustomLight/theme';
 import CustomDark from '../../themes/CustomDark/theme';
 
+const DEFAULT_THEME: number = 2;
+
 export const ThemeManager: React.FC<any> = (props: any = {}): JSX.Element => {
-	const [theme, setTheme] = React.useState<number>(2);
+	const [theme, setTheme] = React.useState<number>(DEFAULT_THEME);
+
+	React.useEffect(() => {
+		loadTheme();
+	}, []);
+
+	React.useEffect(() => {
+		saveTheme();
+	}, [theme]);
 
 	const getTheme = () => {
 		switch (theme) {
@@ -21,6 +31,15 @@ export const ThemeManager: React.FC<any> = (props: any = {}): JSX.Element => {
 			default:
 				return Base;
 		}
+	};
+
+	const loadTheme = () => {
+		const theme: number = Number(localStorage.getItem('theme') ?? DEFAULT_THEME);
+		setTheme(theme);
+	};
+
+	const saveTheme = () => {
+		localStorage.setItem('theme', String(theme));
 	};
 
 	const handleClickTheme = () => {
