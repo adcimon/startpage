@@ -21,8 +21,10 @@ export const AppView: React.FC = (): JSX.Element => {
 						display: 'flex',
 						flexDirection: 'column',
 						gap: '3rem',
-						height: '100vh',
+						height: '100%',
 						justifyContent: 'center',
+						paddingBottom: '3rem',
+						paddingTop: '3rem',
 					}}>
 					<DatetimeWidget />
 					<SearchField
