@@ -1,28 +1,16 @@
 import * as React from 'react';
-import { SxProps } from '@mui/system';
-import Autocomplete, { AutocompleteChangeDetails, AutocompleteChangeReason } from '@mui/material/Autocomplete';
+import Autocomplete from '@mui/material/Autocomplete';
 import Box from '@mui/material/Box';
-import TextField, { TextFieldVariants } from '@mui/material/TextField';
-import { InputLabelProps } from '@mui/material/InputLabel';
+import TextField, { TextFieldProps } from '@mui/material/TextField';
 
-interface ITimezoneSelectProps {
-	label?: React.ReactNode;
-	defaultValue?: string;
-	value?: string;
-	onChange?: (
-		event: React.SyntheticEvent<Element, Event>,
-		value: any,
-		reason: AutocompleteChangeReason,
-		details?: AutocompleteChangeDetails<any> | undefined,
-	) => void;
-	variant?: TextFieldVariants;
-	disabled?: boolean;
+type TimezoneSelectProps = TextFieldProps & {
 	disableClearable?: boolean;
-	InputLabelProps?: Partial<InputLabelProps>;
-	sx?: SxProps;
-}
+};
 
-export const TimezoneSelect: React.FC<ITimezoneSelectProps> = (props: ITimezoneSelectProps): JSX.Element => {
+export const TimezoneSelect: React.FC<TimezoneSelectProps> = ({
+	disableClearable,
+	...props
+}: TimezoneSelectProps): JSX.Element => {
 	const defaultValue = timezones[timezones.findIndex((timezone: string) => timezone === props.defaultValue)] || null;
 	const value = timezones[timezones.findIndex((timezone: string) => timezone === props.value)] || null;
 	const render = () => {
@@ -30,10 +18,10 @@ export const TimezoneSelect: React.FC<ITimezoneSelectProps> = (props: ITimezoneS
 			<Autocomplete
 				defaultValue={defaultValue}
 				value={value || defaultValue}
-				onChange={props.onChange}
+				onChange={(event: any, value: any) => props.onChange?.({ ...event, target: { value: value } })}
 				options={timezones}
 				disabled={props.disabled}
-				disableClearable={props.disableClearable}
+				disableClearable={disableClearable}
 				getOptionLabel={(option) => option}
 				renderOption={(props, option) => (
 					<Box
@@ -45,21 +33,21 @@ export const TimezoneSelect: React.FC<ITimezoneSelectProps> = (props: ITimezoneS
 				renderInput={(params) => (
 					<TextField
 						{...params}
-						label={props.label}
-						variant={props.variant}
-						hiddenLabel={props.label === undefined}
-						InputLabelProps={props.InputLabelProps}
+						{...props}
+						onChange={undefined}
 						InputProps={{
 							...params.InputProps,
+							...props.InputProps,
 							sx: {
+								...props.sx,
 								height: '100%',
 							},
 						}}
 						inputProps={{
 							...params.inputProps,
+							...props.inputProps,
 							autoComplete: 'new-password', // Disable autocomplete and autofill.
 						}}
-						sx={props.sx}
 					/>
 				)}
 				sx={props.sx}

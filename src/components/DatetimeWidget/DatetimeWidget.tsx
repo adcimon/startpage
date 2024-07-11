@@ -5,42 +5,48 @@ import { TimezoneSelect } from '../TimezoneSelect/TimezoneSelect';
 import { useInterval } from '../../hooks/useInterval';
 import { Utils } from '../../utils/utils';
 
-interface IDateWidgetState {
-	time: string;
-	date: string;
-	timezone: string;
-}
+const DEFAULT_TIMEZONE: string = 'Europe/Madrid';
 
 export const DatetimeWidget: React.FC = (): JSX.Element => {
-	const [state, setState] = React.useState<IDateWidgetState>({
-		time: '',
-		date: '',
-		timezone: 'Europe/Madrid',
-	});
+	const [time, setTime] = React.useState<string>('');
+	const [date, setDate] = React.useState<string>('');
+	const [timezone, setTimezone] = React.useState<string>(DEFAULT_TIMEZONE);
+
+	React.useEffect(() => {
+		loadTimezone();
+	}, []);
 
 	useInterval(() => {
 		update();
 	}, 1 * 1000);
 
 	React.useEffect(() => {
+		saveTimezone();
 		update();
-	}, [state.timezone]);
+	}, [timezone]);
 
-	const update = () => {
-		const time: string = Utils.getTime(state.timezone);
-		const date: string = Utils.getDate(state.timezone);
-		setState({
-			...state,
-			time: time,
-			date: date,
-		});
+	const loadTimezone = () => {
+		const timezone: string = localStorage.getItem('timezone') ?? DEFAULT_TIMEZONE;
+		setTimezone(timezone);
 	};
 
-	const handleChangeTimezone = (event: any, value: any) => {
-		setState({
-			...state,
-			timezone: value,
-		});
+	const saveTimezone = () => {
+		localStorage.setItem('timezone', timezone);
+	};
+
+	const update = () => {
+		try {
+			const time: string = Utils.getTime(timezone);
+			const date: string = Utils.getDate(timezone);
+			setTime(time);
+			setDate(date);
+		} catch (error: any) {
+			setTimezone(DEFAULT_TIMEZONE);
+		}
+	};
+
+	const handleChangeTimezone = (event: any) => {
+		setTimezone(event.target.value);
 	};
 
 	const render = () => {
@@ -68,19 +74,20 @@ export const DatetimeWidget: React.FC = (): JSX.Element => {
 							sx={{
 								opacity: opacity,
 							}}>
-							{state.time}
+							{time}
 						</Typography>
 						<Typography
 							variant='h6'
 							sx={{
 								opacity: opacity,
 							}}>
-							{state.date}
+							{date}
 						</Typography>
 					</Stack>
 					<TimezoneSelect
-						value={state.timezone}
+						value={timezone}
 						onChange={handleChangeTimezone}
+						hiddenLabel
 						disableClearable
 						sx={{
 							height: '30px',
