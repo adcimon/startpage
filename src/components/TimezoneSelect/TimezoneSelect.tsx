@@ -49,6 +49,12 @@ export const TimezoneSelect: React.FC<ITimezoneSelectProps> = (props: ITimezoneS
 						variant={props.variant}
 						hiddenLabel={props.label === undefined}
 						InputLabelProps={props.InputLabelProps}
+						InputProps={{
+							...params.InputProps,
+							sx: {
+								height: '100%',
+							},
+						}}
 						inputProps={{
 							...params.inputProps,
 							autoComplete: 'new-password', // Disable autocomplete and autofill.

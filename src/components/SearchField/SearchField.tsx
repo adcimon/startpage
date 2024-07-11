@@ -9,28 +9,40 @@ type SearchFieldProps = TextFieldProps & {
 	onSearch?: (query: string) => void;
 };
 
+interface ISearchFieldState {
+	value: string;
+}
+
 export const SearchField: React.FC<SearchFieldProps> = ({ onSearch, ...props }: SearchFieldProps): JSX.Element => {
-	const [value, setValue] = React.useState<string>('');
+	const [state, setState] = React.useState<ISearchFieldState>({
+		value: '',
+	});
 
 	const handleChange = (event: any) => {
 		props.onChange?.(event);
-		setValue(event.target.value);
+		setState({
+			...state,
+			value: event.target.value,
+		});
 	};
 
 	const handleKeyDown = (event: any) => {
 		props.onKeyDown?.(event);
 
-		if (value === '') {
+		if (state.value === '') {
 			return;
 		}
 
 		if (event.key === 'Enter') {
-			onSearch?.(value);
+			onSearch?.(state.value);
 		}
 	};
 
 	const handleClear = () => {
-		setValue('');
+		setState({
+			...state,
+			value: '',
+		});
 	};
 
 	const render = () => {
@@ -38,10 +50,9 @@ export const SearchField: React.FC<SearchFieldProps> = ({ onSearch, ...props }: 
 			<>
 				<TextField
 					{...props}
-					value={value}
+					value={state.value}
 					onChange={handleChange}
 					onKeyDown={handleKeyDown}
-					variant='filled'
 					hiddenLabel
 					InputLabelProps={{ shrink: false }}
 					InputProps={{
@@ -52,7 +63,7 @@ export const SearchField: React.FC<SearchFieldProps> = ({ onSearch, ...props }: 
 						),
 						endAdornment: (
 							<InputAdornment position='end'>
-								{value !== '' && <IconButton onClick={handleClear}>{<CloseIcon />}</IconButton>}
+								{state.value !== '' && <IconButton onClick={handleClear}>{<CloseIcon />}</IconButton>}
 							</InputAdornment>
 						),
 					}}

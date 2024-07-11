@@ -5,10 +5,18 @@ import { TimezoneSelect } from '../TimezoneSelect/TimezoneSelect';
 import { useInterval } from '../../hooks/useInterval';
 import { Utils } from '../../utils/utils';
 
+interface IDateWidgetState {
+	time: string;
+	date: string;
+	timezone: string;
+}
+
 export const DatetimeWidget: React.FC = (): JSX.Element => {
-	const [time, setTime] = React.useState<string>('');
-	const [date, setDate] = React.useState<string>('');
-	const [timezone, setTimezone] = React.useState<string>('Europe/Madrid');
+	const [state, setState] = React.useState<IDateWidgetState>({
+		time: '',
+		date: '',
+		timezone: 'Europe/Madrid',
+	});
 
 	useInterval(() => {
 		update();
@@ -16,17 +24,23 @@ export const DatetimeWidget: React.FC = (): JSX.Element => {
 
 	React.useEffect(() => {
 		update();
-	}, [timezone]);
+	}, [state.timezone]);
 
 	const update = () => {
-		const time: string = Utils.getTime(timezone);
-		setTime(time);
-		const date: string = Utils.getDate(timezone);
-		setDate(date);
+		const time: string = Utils.getTime(state.timezone);
+		const date: string = Utils.getDate(state.timezone);
+		setState({
+			...state,
+			time: time,
+			date: date,
+		});
 	};
 
 	const handleChangeTimezone = (event: any, value: any) => {
-		setTimezone(value);
+		setState({
+			...state,
+			timezone: value,
+		});
 	};
 
 	const render = () => {
@@ -54,18 +68,18 @@ export const DatetimeWidget: React.FC = (): JSX.Element => {
 							sx={{
 								opacity: opacity,
 							}}>
-							{time}
+							{state.time}
 						</Typography>
 						<Typography
 							variant='h6'
 							sx={{
 								opacity: opacity,
 							}}>
-							{date}
+							{state.date}
 						</Typography>
 					</Stack>
 					<TimezoneSelect
-						value={timezone}
+						value={state.timezone}
 						onChange={handleChangeTimezone}
 						disableClearable
 						sx={{

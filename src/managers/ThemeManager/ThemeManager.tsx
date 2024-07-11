@@ -9,8 +9,14 @@ import CustomDark from '../../themes/CustomDark/theme';
 
 const DEFAULT_THEME: number = 2;
 
+interface IThemeManagerState {
+	theme: number;
+}
+
 export const ThemeManager: React.FC<any> = (props: any = {}): JSX.Element => {
-	const [theme, setTheme] = React.useState<number>(DEFAULT_THEME);
+	const [state, setState] = React.useState<IThemeManagerState>({
+		theme: DEFAULT_THEME,
+	});
 
 	React.useEffect(() => {
 		loadTheme();
@@ -18,10 +24,10 @@ export const ThemeManager: React.FC<any> = (props: any = {}): JSX.Element => {
 
 	React.useEffect(() => {
 		saveTheme();
-	}, [theme]);
+	}, [state.theme]);
 
 	const getTheme = () => {
-		switch (theme) {
+		switch (state.theme) {
 			case 0:
 				return Base;
 			case 1:
@@ -35,15 +41,21 @@ export const ThemeManager: React.FC<any> = (props: any = {}): JSX.Element => {
 
 	const loadTheme = () => {
 		const theme: number = Number(localStorage.getItem('theme') ?? DEFAULT_THEME);
-		setTheme(theme);
+		setState({
+			...state,
+			theme: theme,
+		});
 	};
 
 	const saveTheme = () => {
-		localStorage.setItem('theme', String(theme));
+		localStorage.setItem('theme', String(state.theme));
 	};
 
 	const handleClickTheme = () => {
-		setTheme((theme + 1) % 3);
+		setState({
+			...state,
+			theme: (state.theme + 1) % 3,
+		});
 	};
 
 	const render = () => {
