@@ -103,6 +103,7 @@ export function createComponents(config: any) {
 					display: 'flex',
 					flexDirection: 'column',
 					minHeight: '100%',
+					overscrollBehavior: 'contain',
 					width: '100%',
 				},
 				body: {
@@ -110,6 +111,7 @@ export function createComponents(config: any) {
 					flex: '1 1 auto',
 					flexDirection: 'column',
 					minHeight: '100%',
+					overscrollBehavior: 'contain',
 					width: '100%',
 				},
 				'#__next': {

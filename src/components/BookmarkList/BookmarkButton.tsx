@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Theme, useTheme, useMediaQuery } from '@mui/material';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 
@@ -9,6 +10,9 @@ interface IBookmarkButtonProps {
 }
 
 export const BookmarkButton: React.FC<IBookmarkButtonProps> = (props: IBookmarkButtonProps): JSX.Element => {
+	const theme: Theme = useTheme();
+	const responsive = useMediaQuery(theme.breakpoints.down('md'));
+
 	const render = () => {
 		return (
 			<>
@@ -16,9 +20,9 @@ export const BookmarkButton: React.FC<IBookmarkButtonProps> = (props: IBookmarkB
 					sx={{
 						background: props.background,
 						borderRadius: '10px',
-						height: '120px',
+						height: responsive ? '80px' : '120px',
 						transition: 'transform 0.3s ease-out',
-						width: '176px',
+						width: responsive ? '126px' : '176px',
 						'&:hover': {
 							cursor: 'pointer',
 							transform: 'translateY(-3px) scale(1.1)',
@@ -37,8 +41,8 @@ export const BookmarkButton: React.FC<IBookmarkButtonProps> = (props: IBookmarkB
 						}}>
 						<img
 							src={props.icon}
-							height='50px'
-							width='50px'
+							height={responsive ? '35px' : '50px'}
+							width={responsive ? '35px' : '50px'}
 						/>
 					</Link>
 				</Box>
