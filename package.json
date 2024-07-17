@@ -2,7 +2,6 @@
 	"name": "startpage",
 	"version": "0.0.1",
 	"author": "adcimon",
-	"license": "MIT",
 	"scripts": {
 		"start": "node esbuild.config.mjs --start",
 		"build": "node esbuild.config.mjs --build",
