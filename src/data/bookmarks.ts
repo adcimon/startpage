@@ -6,16 +6,16 @@ export const Bookmarks = [
 		url: '',
 	},
 	{
-		name: 'YouTube',
-		icon: 'images/icons/youtube.svg',
-		background: 'hsla(0, 100%, 50%, 1)',
-		url: 'https://www.youtube.com/',
-	},
-	{
 		name: 'GitHub',
 		icon: 'images/icons/github.svg',
 		background: 'hsla(213, 11%, 16%, 1)',
 		url: 'https://github.com',
+	},
+	{
+		name: 'YouTube',
+		icon: 'images/icons/youtube.svg',
+		background: 'hsla(0, 100%, 50%, 1)',
+		url: 'https://www.youtube.com/',
 	},
 	{
 		name: 'Google Mail',
