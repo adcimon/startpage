@@ -29,11 +29,13 @@ export function BookmarkList() {
 
 		const handleMiddleClick = (e) => {
 			if (e.button === 1) {
-				// Middle mouse button
+				// Allow middle mouse clicking links to open in a new tab.
 				if (e.target.closest('.category-link')) {
-					return; // Allow middle-clicking links to open in a new tab
+					return;
 				}
+
 				e.preventDefault();
+
 				const rect = swiperInstance.el.getBoundingClientRect();
 				const clickX = e.clientX - rect.left;
 				if (clickX < rect.width / 2) {
@@ -80,7 +82,7 @@ export function BookmarkList() {
 								<div class="category-card">
 									<h4 class="category-header">${categoryName}</h4>
 									<div class="category-links">
-										${items.map((item, itemIdx) => {
+										${items.map((item, index) => {
 											const handleClick = (event) => {
 												if (item.trigger === '/exit') {
 													event.preventDefault();
@@ -89,7 +91,7 @@ export function BookmarkList() {
 											};
 											return html`
 												<a
-													key=${itemIdx}
+													key=${index}
 													href=${item.url || window.location.href}
 													target=${item.url ? '_self' : '_blank'}
 													onClick=${handleClick}

@@ -7,6 +7,13 @@
 	text-align: center;
 }
 
+.datetime-date {
+	font-size: clamp(1rem, 3vw, 1.25rem);
+	color: var(--color-text-secondary);
+	opacity: 0.8;
+	margin: 0;
+}
+
 .datetime-time {
 	font-size: clamp(2.5rem, 8vw, 4rem);
 	font-weight: 700;
@@ -14,13 +21,6 @@
 	opacity: 0.85;
 	margin: 0;
 	line-height: 1;
-}
-
-.datetime-date {
-	font-size: clamp(1rem, 3vw, 1.25rem);
-	color: var(--color-text-secondary);
-	opacity: 0.8;
-	margin: 0;
 }
 
 .timezone-select-container {

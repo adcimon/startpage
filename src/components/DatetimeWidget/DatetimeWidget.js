@@ -57,18 +57,17 @@ export function DatetimeWidget() {
 		<div class="datetime-widget">
 			<p class="datetime-date">${date}</p>
 			<h2 class="datetime-time">${time}</h2>
-
 			<div class="timezone-select-container">
 				<select
 					class="timezone-input"
 					value=${timezone}
 					onChange=${handleChangeTimezone}>
 					${timezones.map(
-						(tz) =>
+						(timezone) =>
 							html`<option
-								key=${tz}
-								value=${tz}>
-								${tz}
+								key=${timezone}
+								value=${timezone}>
+								${timezone}
 							</option>`,
 					)}
 				</select>
