@@ -1,12 +1,12 @@
 .bookmarks-container {
 	position: relative;
 	width: 100%;
-	padding: 0 40px;
+	padding: 0 32px;
 }
 
 @media only screen and (max-width: 575.98px) {
 	.bookmarks-container {
-		padding: 0 30px;
+		padding: 0 16px;
 	}
 }
 
@@ -24,7 +24,7 @@
 
 @media (min-width: 576px) {
 	.swiper-slide {
-		width: 260px !important;
+		width: 250px !important;
 	}
 }
 
@@ -106,6 +106,7 @@
 .link-name {
 	font-size: 0.85rem;
 	font-weight: 500;
+	white-space: nowrap; /* Keep name in 1 line always */
 }
 
 .link-trigger {
@@ -132,7 +133,9 @@
 	color: var(--color-primary) !important;
 	width: 24px;
 	height: 24px;
-	top: calc(50% - 12px) !important;
+	top: 50% !important;
+	transform: translateY(-50%) !important;
+	margin-top: 0 !important;
 }
 
 .swiper-button-prev::after,
@@ -142,11 +145,11 @@
 }
 
 .swiper-button-prev {
-	left: 5px !important;
+	left: 4px !important;
 }
 
 .swiper-button-next {
-	right: 5px !important;
+	right: 4px !important;
 }
 
 /* Swiper Pagination */

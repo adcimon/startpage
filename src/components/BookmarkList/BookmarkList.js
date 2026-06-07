@@ -5,8 +5,12 @@ export function BookmarkList() {
 	React.useEffect(() => {
 		const swiperInstance = new Swiper('.bookmarks-swiper', {
 			slidesPerView: 1,
-			spaceBetween: 8,
+			spaceBetween: 12,
 			grabCursor: true,
+			watchOverflow: true,
+			mousewheel: {
+				releaseOnEdges: false,
+			},
 			pagination: {
 				el: '.swiper-pagination',
 				clickable: true,
@@ -23,7 +27,32 @@ export function BookmarkList() {
 			},
 		});
 
+		const handleMiddleClick = (e) => {
+			if (e.button === 1) {
+				// Middle mouse button
+				if (e.target.closest('.category-link')) {
+					return; // Allow middle-clicking links to open in a new tab
+				}
+				e.preventDefault();
+				const rect = swiperInstance.el.getBoundingClientRect();
+				const clickX = e.clientX - rect.left;
+				if (clickX < rect.width / 2) {
+					swiperInstance.slidePrev();
+				} else {
+					swiperInstance.slideNext();
+				}
+			}
+		};
+
+		const swiperEl = swiperInstance.el;
+		if (swiperEl) {
+			swiperEl.addEventListener('mousedown', handleMiddleClick);
+		}
+
 		return () => {
+			if (swiperEl) {
+				swiperEl.removeEventListener('mousedown', handleMiddleClick);
+			}
 			if (swiperInstance) {
 				swiperInstance.destroy();
 			}
@@ -83,9 +112,9 @@ export function BookmarkList() {
 					)}
 				</div>
 				<div class="swiper-pagination"></div>
-				<div class="swiper-button-prev"></div>
-				<div class="swiper-button-next"></div>
 			</div>
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
 		</div>
 	`;
 }
