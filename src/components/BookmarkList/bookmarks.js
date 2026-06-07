@@ -4,7 +4,7 @@ export const Bookmarks = [
 		icon: 'assets/images/favicons/favicon.ico',
 		background: 'hsla(217, 19%, 38%, 1)',
 		url: '',
-		category: 'System',
+		category: 'General',
 		trigger: '/new',
 	},
 	{
@@ -28,7 +28,7 @@ export const Bookmarks = [
 		icon: 'assets/images/icons/gmail.svg',
 		background: 'hsla(0, 0%, 95%, 1)',
 		url: 'https://www.google.com/mail',
-		category: 'Google',
+		category: 'Workspace',
 		trigger: '/mail',
 	},
 	{
@@ -36,7 +36,7 @@ export const Bookmarks = [
 		icon: 'assets/images/icons/gdrive.svg',
 		background: 'hsla(0, 0%, 95%, 1)',
 		url: 'https://drive.google.com/drive/my-drive',
-		category: 'Google',
+		category: 'Workspace',
 		trigger: '/drive',
 	},
 	{
@@ -44,13 +44,13 @@ export const Bookmarks = [
 		icon: 'assets/images/icons/gmaps.svg',
 		background: 'hsla(0, 0%, 95%, 1)',
 		url: 'https://www.google.com/maps',
-		category: 'Google',
+		category: 'General',
 		trigger: '/map',
 	},
 	{
 		name: 'YouTube',
 		icon: 'assets/images/icons/youtube.svg',
-		background: 'hsla(0, 100%, 50%, 1)',
+		background: 'hsla(348, 100%, 50%, 1)',
 		url: 'https://www.youtube.com/',
 		category: 'Entertainment',
 		trigger: '/yt',
