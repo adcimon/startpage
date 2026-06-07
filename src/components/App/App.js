@@ -60,18 +60,23 @@ export function App() {
 	};
 
 	return html`
-		<main class="app-main">
+		<main>
 			<button
-				class="theme-toggle-btn"
-				onClick=${toggleTheme}
-				aria-label="Toggle theme">
+				class="theme-toggle"
+				onClick=${toggleTheme}>
 				<i class=${theme === 'light' ? 'icon-moon' : 'icon-sun'}></i>
 			</button>
 
 			<div class="w-100 d-flex flex-column align-items-center justify-content-center min-vh-100 py-5">
-				<div class="main-container d-flex flex-column align-items-center gap-5 w-100">
+				<div class="content d-flex flex-column align-items-center gap-5 w-100">
 					<${DatetimeWidget} />
-					<${SearchField} onSearch=${handleSearch} />
+					<div
+						class="col-11 col-sm-8 col-md-6 col-lg-5 position-relative p-0"
+						style=${{
+							maxWidth: '500px',
+						}}>
+						<${SearchField} onSearch=${handleSearch} />
+					</div>
 					<${BookmarkList} />
 				</div>
 			</div>

@@ -1,15 +1,16 @@
 import { html } from '../../html.js';
 
 export function SearchField({ onSearch }) {
-	const [value, setValue] = React.useState('');
 	const inputRef = React.useRef(null);
+
+	const [value, setValue] = React.useState('');
 
 	React.useEffect(() => {
 		if (inputRef.current) {
 			inputRef.current.focus();
 		}
 
-		// Focus the search field when user starts typing anywhere on the page
+		// Focus the search field when user starts typing anywhere on the page.
 		const handleGlobalKeyDown = (event) => {
 			const activeEl = document.activeElement;
 			if (
@@ -56,7 +57,7 @@ export function SearchField({ onSearch }) {
 	};
 
 	return html`
-		<div class="search-field-container">
+		<div class="search-field">
 			<div class="search-input-wrapper">
 				<span class="search-icon-left">
 					<i class="icon-search"></i>
@@ -69,14 +70,12 @@ export function SearchField({ onSearch }) {
 					onChange=${handleChange}
 					onKeyDown=${handleKeyDown}
 					placeholder="Search..."
-					aria-label="Search"
 					autofocus />
 				${value !== ''
 					? html`
 							<button
-								class="search-clear-btn"
-								onClick=${handleClear}
-								aria-label="Clear search">
+								class="search-clear-button"
+								onClick=${handleClear}>
 								<i class="icon-x"></i>
 							</button>
 						`

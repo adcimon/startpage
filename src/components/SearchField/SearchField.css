@@ -1,14 +1,5 @@
-.search-field-container {
-	position: relative;
-	width: 70%;
-	max-width: 500px;
-	margin: 0 auto;
-}
-
-@media only screen and (max-width: 576px) {
-	.search-field-container {
-		width: 90%;
-	}
+.search-field {
+	width: 100%;
 }
 
 .search-input-wrapper {
@@ -52,7 +43,7 @@
 	color: var(--color-text-muted);
 }
 
-.search-clear-btn {
+.search-clear-button {
 	background: transparent;
 	border: none;
 	color: var(--color-text-secondary);
@@ -65,6 +56,6 @@
 	transition: color var(--transition-smooth);
 }
 
-.search-clear-btn:hover {
+.search-clear-button:hover {
 	color: var(--color-primary);
 }
