@@ -32,7 +32,7 @@ export const Bookmarks = [
 		icon: 'assets/images/icons/gmaps.svg',
 		url: 'https://www.google.com/maps',
 		category: 'Workspace',
-		trigger: '/map',
+		trigger: '/maps',
 	},
 	{
 		name: 'GitHub',
