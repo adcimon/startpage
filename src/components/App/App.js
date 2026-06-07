@@ -7,11 +7,20 @@ export function App() {
 	const [theme, setTheme] = React.useState(localStorage.getItem('theme') || 'dark');
 
 	React.useEffect(() => {
-		if (theme === 'light') {
-			document.body.className = 'theme-light';
-		} else {
-			document.body.className = 'theme-dark';
+		let metaThemeColor = document.querySelector('meta[name="theme-color"]');
+		if (!metaThemeColor) {
+			metaThemeColor = document.createElement('meta');
+			metaThemeColor.name = 'theme-color';
+			document.head.appendChild(metaThemeColor);
 		}
+
+		document.body.className = theme === 'light' ? 'theme-light' : 'theme-dark';
+
+		const bodyBgColor = getComputedStyle(document.body).getPropertyValue('--color-bg-body').trim();
+		if (bodyBgColor) {
+			metaThemeColor.content = bodyBgColor;
+		}
+
 		localStorage.setItem('theme', theme);
 	}, [theme]);
 
