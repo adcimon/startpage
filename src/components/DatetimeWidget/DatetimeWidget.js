@@ -4,8 +4,8 @@ import { timezones } from './timezones.js';
 const DEFAULT_TIMEZONE = 'Europe/Madrid';
 
 export function DatetimeWidget() {
+	const [date, setDate] = React.useState('');
 	const [time, setTime] = React.useState('');
-	const [dateStr, setDateStr] = React.useState('');
 	const [timezone, setTimezone] = React.useState(() => {
 		return localStorage.getItem('timezone') || DEFAULT_TIMEZONE;
 	});
@@ -15,13 +15,6 @@ export function DatetimeWidget() {
 			const now = new Date();
 			const locale = 'en-UK';
 
-			const formattedTime = now.toLocaleTimeString(locale, {
-				hour: '2-digit',
-				minute: '2-digit',
-				hour12: false,
-				timeZone: timezone,
-			});
-
 			const formattedDate = now.toLocaleDateString(locale, {
 				weekday: 'long',
 				day: 'numeric',
@@ -30,10 +23,17 @@ export function DatetimeWidget() {
 				timeZone: timezone,
 			});
 
+			const formattedTime = now.toLocaleTimeString(locale, {
+				hour: '2-digit',
+				minute: '2-digit',
+				hour12: false,
+				timeZone: timezone,
+			});
+
+			setDate(formattedDate);
 			setTime(formattedTime);
-			setDateStr(formattedDate);
 		} catch (e) {
-			// Fail silently or fallback if user is in middle of typing timezone
+			// Fail silently or fallback if user is in middle of typing timezone.
 		}
 	}, [timezone]);
 
@@ -55,8 +55,8 @@ export function DatetimeWidget() {
 
 	return html`
 		<div class="datetime-widget">
+			<p class="datetime-date">${date}</p>
 			<h2 class="datetime-time">${time}</h2>
-			<p class="datetime-date">${dateStr}</p>
 
 			<div class="timezone-select-container">
 				<select

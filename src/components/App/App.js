@@ -29,13 +29,20 @@ export function App() {
 		setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
 	};
 
-	const handleSearch = (query) => {
+	const handleSearch = (query, openInNewTab = false) => {
 		const trimmed = query.trim().toLowerCase();
 		const matchedBookmark = Bookmarks.find((b) => b.trigger && b.trigger.toLowerCase() === trimmed);
 
 		if (matchedBookmark) {
-			if (matchedBookmark.url) {
-				window.location.href = matchedBookmark.url;
+			if (matchedBookmark.trigger === '/exit') {
+				window.close();
+				return true;
+			} else if (matchedBookmark.url) {
+				if (openInNewTab) {
+					window.open(matchedBookmark.url, '_blank');
+				} else {
+					window.location.href = matchedBookmark.url;
+				}
 				return false;
 			} else {
 				window.open(window.location.href, '_blank');
@@ -43,7 +50,11 @@ export function App() {
 			}
 		} else {
 			const searchUrl = 'https://www.google.com/search?q=';
-			window.location.href = searchUrl + encodeURIComponent(query);
+			if (openInNewTab) {
+				window.open(searchUrl + encodeURIComponent(query), '_blank');
+			} else {
+				window.location.href = searchUrl + encodeURIComponent(query);
+			}
 			return false;
 		}
 	};
@@ -58,7 +69,7 @@ export function App() {
 			</button>
 
 			<div class="container d-flex flex-column align-items-center justify-content-center min-vh-100 py-5">
-				<div class="startpage-container d-flex flex-column align-items-center gap-5 w-100">
+				<div class="main-container d-flex flex-column align-items-center gap-5 w-100">
 					<${DatetimeWidget} />
 					<${SearchField} onSearch=${handleSearch} />
 					<${BookmarkList} />

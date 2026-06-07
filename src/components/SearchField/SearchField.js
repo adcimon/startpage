@@ -40,8 +40,9 @@ export function SearchField({ onSearch }) {
 
 	const handleKeyDown = (event) => {
 		if (event.key === 'Enter' && value.trim() !== '') {
-			const shouldClear = onSearch?.(value);
-			if (shouldClear) {
+			const openInNewTab = event.ctrlKey || event.metaKey || event.shiftKey || event.altKey;
+			const shouldClear = onSearch?.(value, openInNewTab);
+			if (shouldClear || openInNewTab) {
 				setValue('');
 			}
 		}

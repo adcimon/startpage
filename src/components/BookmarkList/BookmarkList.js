@@ -30,7 +30,7 @@ export function BookmarkList() {
 		};
 	}, []);
 
-	// Group bookmarks by category
+	// Group bookmarks by category.
 	const categories = Bookmarks.reduce((acc, curr) => {
 		if (!acc[curr.category]) {
 			acc[curr.category] = [];
@@ -51,12 +51,19 @@ export function BookmarkList() {
 								<div class="category-card">
 									<h4 class="category-header">${categoryName}</h4>
 									<div class="category-links">
-										${items.map(
-											(item, itemIdx) => html`
+										${items.map((item, itemIdx) => {
+											const handleClick = (event) => {
+												if (item.trigger === '/exit') {
+													event.preventDefault();
+													window.close();
+												}
+											};
+											return html`
 												<a
 													key=${itemIdx}
 													href=${item.url || window.location.href}
 													target=${item.url ? '_self' : '_blank'}
+													onClick=${handleClick}
 													class="category-link">
 													<div class="link-left">
 														<img
@@ -67,18 +74,15 @@ export function BookmarkList() {
 													</div>
 													<span class="link-trigger">${item.trigger}</span>
 												</a>
-											`,
-										)}
+											`;
+										})}
 									</div>
 								</div>
 							</div>
 						`,
 					)}
 				</div>
-				<!-- Add Pagination -->
 				<div class="swiper-pagination"></div>
-
-				<!-- Add Navigation Arrows -->
 				<div class="swiper-button-prev"></div>
 				<div class="swiper-button-next"></div>
 			</div>

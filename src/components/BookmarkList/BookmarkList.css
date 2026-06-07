@@ -126,7 +126,7 @@
 	border-color: var(--color-primary);
 }
 
-/* Customize Swiper Navigation Arrows */
+/* Swiper Navigation Arrows */
 .swiper-button-prev,
 .swiper-button-next {
 	color: var(--color-primary) !important;
@@ -149,7 +149,7 @@
 	right: 5px !important;
 }
 
-/* Customize Swiper Pagination */
+/* Swiper Pagination */
 .swiper-pagination-bullet {
 	background: var(--color-text-secondary) !important;
 	opacity: 0.4 !important;

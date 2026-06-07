@@ -2,15 +2,20 @@ export const Bookmarks = [
 	{
 		name: 'New Window',
 		icon: 'assets/images/favicons/favicon.ico',
-		background: 'hsla(217, 19%, 38%, 1)',
 		url: '',
 		category: 'General',
 		trigger: '/new',
 	},
 	{
+		name: 'Close Window',
+		icon: 'assets/images/icons/close.svg',
+		url: '',
+		category: 'General',
+		trigger: '/exit',
+	},
+	{
 		name: 'GitHub',
 		icon: 'assets/images/icons/github.svg',
-		background: 'hsla(213, 11%, 16%, 1)',
 		url: 'https://github.com',
 		category: 'Development',
 		trigger: '/gh',
@@ -18,7 +23,6 @@ export const Bookmarks = [
 	{
 		name: 'Hacker News',
 		icon: 'assets/images/icons/ycombinator.svg',
-		background: 'hsla(19, 89%, 54%, 1)',
 		url: 'https://news.ycombinator.com/',
 		category: 'Development',
 		trigger: '/hn',
@@ -26,7 +30,6 @@ export const Bookmarks = [
 	{
 		name: 'Google Mail',
 		icon: 'assets/images/icons/gmail.svg',
-		background: 'hsla(0, 0%, 95%, 1)',
 		url: 'https://www.google.com/mail',
 		category: 'Workspace',
 		trigger: '/mail',
@@ -34,7 +37,6 @@ export const Bookmarks = [
 	{
 		name: 'Google Drive',
 		icon: 'assets/images/icons/gdrive.svg',
-		background: 'hsla(0, 0%, 95%, 1)',
 		url: 'https://drive.google.com/drive/my-drive',
 		category: 'Workspace',
 		trigger: '/drive',
@@ -42,7 +44,6 @@ export const Bookmarks = [
 	{
 		name: 'Google Maps',
 		icon: 'assets/images/icons/gmaps.svg',
-		background: 'hsla(0, 0%, 95%, 1)',
 		url: 'https://www.google.com/maps',
 		category: 'General',
 		trigger: '/map',
@@ -50,7 +51,6 @@ export const Bookmarks = [
 	{
 		name: 'YouTube',
 		icon: 'assets/images/icons/youtube.svg',
-		background: 'hsla(348, 100%, 50%, 1)',
 		url: 'https://www.youtube.com/',
 		category: 'Entertainment',
 		trigger: '/yt',
