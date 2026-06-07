@@ -43,7 +43,7 @@ export function App() {
 			</button>
 
 			<div class="container d-flex flex-column align-items-center justify-content-center min-vh-100 py-5">
-				<div class="startpage-container box d-flex flex-column align-items-center gap-5 w-100">
+				<div class="startpage-container d-flex flex-column align-items-center gap-5 w-100">
 					<${DatetimeWidget} />
 					<${SearchField} onSearch=${handleSearch} />
 					<${BookmarkList} />
