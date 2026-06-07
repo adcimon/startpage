@@ -69,7 +69,9 @@ export function App() {
 
 			<div class="w-100 d-flex flex-column align-items-center justify-content-center min-vh-100 py-5">
 				<div class="content d-flex flex-column align-items-center gap-5 w-100">
-					<${DatetimeWidget} />
+					<div class="col-11 col-sm-8 col-md-6 col-lg-5 position-relative p-0">
+						<${DatetimeWidget} />
+					</div>
 					<div
 						class="col-11 col-sm-8 col-md-6 col-lg-5 position-relative p-0"
 						style=${{
@@ -77,7 +79,9 @@ export function App() {
 						}}>
 						<${SearchField} onSearch=${handleSearch} />
 					</div>
-					<${BookmarkList} />
+					<div class="col-12 position-relative p-0">
+						<${BookmarkList} />
+					</div>
 				</div>
 			</div>
 		</main>
