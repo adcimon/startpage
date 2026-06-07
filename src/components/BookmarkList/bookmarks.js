@@ -14,20 +14,6 @@ export const Bookmarks = [
 		trigger: '/exit',
 	},
 	{
-		name: 'GitHub',
-		icon: 'assets/images/icons/github.svg',
-		url: 'https://github.com',
-		category: 'Development',
-		trigger: '/gh',
-	},
-	{
-		name: 'Hacker News',
-		icon: 'assets/images/icons/ycombinator.svg',
-		url: 'https://news.ycombinator.com/',
-		category: 'Development',
-		trigger: '/hn',
-	},
-	{
 		name: 'Google Mail',
 		icon: 'assets/images/icons/gmail.svg',
 		url: 'https://www.google.com/mail',
@@ -45,8 +31,22 @@ export const Bookmarks = [
 		name: 'Google Maps',
 		icon: 'assets/images/icons/gmaps.svg',
 		url: 'https://www.google.com/maps',
-		category: 'General',
+		category: 'Workspace',
 		trigger: '/map',
+	},
+	{
+		name: 'GitHub',
+		icon: 'assets/images/icons/github.svg',
+		url: 'https://github.com',
+		category: 'Development',
+		trigger: '/gh',
+	},
+	{
+		name: 'Hacker News',
+		icon: 'assets/images/icons/ycombinator.svg',
+		url: 'https://news.ycombinator.com/',
+		category: 'Development',
+		trigger: '/hn',
 	},
 	{
 		name: 'YouTube',
@@ -56,11 +56,11 @@ export const Bookmarks = [
 		trigger: '/yt',
 	},
 	{
-		name: 'Reddit',
-		icon: 'assets/images/icons/reddit.svg',
-		url: 'https://www.reddit.com/',
+		name: 'Spotify',
+		icon: 'assets/images/icons/spotify.svg',
+		url: 'https://open.spotify.com/',
 		category: 'Entertainment',
-		trigger: '/r',
+		trigger: '/spot',
 	},
 	{
 		name: 'WhatsApp',
@@ -75,5 +75,12 @@ export const Bookmarks = [
 		url: 'https://web.telegram.org/',
 		category: 'Social',
 		trigger: '/tele',
+	},
+	{
+		name: 'Reddit',
+		icon: 'assets/images/icons/reddit.svg',
+		url: 'https://www.reddit.com/',
+		category: 'Social',
+		trigger: '/r',
 	},
 ];
