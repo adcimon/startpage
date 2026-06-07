@@ -4,8 +4,8 @@ import { Bookmarks } from './bookmarks.js';
 export function BookmarkList() {
 	React.useEffect(() => {
 		const swiperInstance = new Swiper('.bookmarks-swiper', {
-			slidesPerView: 'auto',
-			spaceBetween: 16,
+			slidesPerView: 1,
+			spaceBetween: 8,
 			grabCursor: true,
 			pagination: {
 				el: '.swiper-pagination',
@@ -14,6 +14,12 @@ export function BookmarkList() {
 			navigation: {
 				nextEl: '.swiper-button-next',
 				prevEl: '.swiper-button-prev',
+			},
+			breakpoints: {
+				576: {
+					slidesPerView: 'auto',
+					spaceBetween: 16,
+				},
 			},
 		});
 

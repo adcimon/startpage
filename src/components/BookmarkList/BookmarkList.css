@@ -4,12 +4,6 @@
 	padding: 0 40px;
 }
 
-@media only screen and (max-width: 576px) {
-	.bookmarks-container {
-		padding: 0 20px;
-	}
-}
-
 .swiper {
 	width: 100%;
 	height: auto;
@@ -17,15 +11,20 @@
 }
 
 .swiper-slide {
-	width: 176px !important;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-@media only screen and (max-width: 768px) {
+@media (min-width: 576px) {
 	.swiper-slide {
-		width: 126px !important;
+		width: 176px !important;
+	}
+}
+
+@media (max-width: 575.98px) {
+	.swiper-slide {
+		width: 100% !important;
 	}
 }
 
@@ -49,8 +48,8 @@
 
 @media only screen and (max-width: 768px) {
 	.bookmark-button {
-		height: 80px;
-		width: 126px;
+		height: 150px;
+		width: 240px;
 	}
 }
 
@@ -62,8 +61,8 @@
 
 @media only screen and (max-width: 768px) {
 	.bookmark-icon {
-		width: 35px;
-		height: 35px;
+		width: 70px;
+		height: 70px;
 	}
 }
 
