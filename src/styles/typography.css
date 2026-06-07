@@ -1,0 +1,66 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: var(--color-text-primary);
+	font-family: var(--font-main);
+	font-weight: 600;
+	line-height: 1.3;
+}
+
+.title--h1 {
+	font-size: clamp(1.65rem, 4.5vw, 2.125rem);
+	margin-bottom: 1.3rem;
+}
+@media only screen and (max-width: 576px) {
+	.title--h1 {
+		margin-bottom: 1rem;
+	}
+}
+
+.title--h2 {
+	font-size: clamp(1.35rem, 3.8vw, 1.75rem);
+}
+
+.title--h3 {
+	font-size: clamp(1.2rem, 3.2vw, 1.5rem);
+	margin-bottom: 1rem;
+}
+
+.title--h4 {
+	font-size: clamp(1rem, 2.5vw, 1.15rem);
+}
+
+.title--h5 {
+	font-size: clamp(0.875rem, 2.2vw, 1rem);
+}
+
+.title--h6 {
+	font-size: clamp(0.75rem, 1.8vw, 0.875rem);
+}
+
+.title--tone {
+	color: var(--color-primary);
+}
+
+.title-icon {
+	height: 1.875rem;
+	margin-right: 0.5rem;
+	margin-top: -0.25rem;
+	width: 1.875rem;
+}
+@media only screen and (max-width: 576px) {
+	.title-icon {
+		height: 1.5625rem;
+		width: 1.875rem;
+	}
+}
+
+.overhead {
+	color: var(--color-text-secondary);
+	display: block;
+	font-size: 0.75rem;
+	text-transform: uppercase;
+}

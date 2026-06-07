@@ -1,0 +1,59 @@
+.app-main {
+	position: relative;
+	min-height: 100vh;
+	width: 100%;
+}
+
+.startpage-container {
+	max-width: 800px;
+	width: 100%;
+	padding: 3rem;
+	margin: 0 auto;
+}
+
+@media only screen and (max-width: 576px) {
+	.startpage-container {
+		padding: 1.5rem;
+	}
+}
+
+.box {
+	backdrop-filter: blur(12px);
+	background-color: var(--color-bg-card);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-card);
+	box-shadow: var(--shadow-card);
+	position: relative;
+	transition: all var(--transition-smooth);
+	-webkit-backdrop-filter: blur(12px);
+}
+
+.theme-toggle-btn {
+	align-items: center;
+	backdrop-filter: blur(12px);
+	background: var(--color-bg-card-hover);
+	border: 1px solid var(--color-border);
+	border-radius: 50%;
+	box-shadow: var(--shadow-card-hover);
+	color: var(--color-text-primary);
+	cursor: pointer;
+	display: flex;
+	height: 2.25rem;
+	justify-content: center;
+	outline: none;
+	padding: 0;
+	position: absolute;
+	right: 1.5rem;
+	top: 1.5rem;
+	transition: all var(--transition-smooth);
+	width: 2.25rem;
+	z-index: 10;
+	-webkit-backdrop-filter: blur(12px);
+}
+.theme-toggle-btn:hover {
+	border-color: var(--color-border-hover);
+	transform: scale(1.1);
+}
+.theme-toggle-btn i {
+	font-size: 1.1rem;
+}

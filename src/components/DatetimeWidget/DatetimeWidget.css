@@ -1,0 +1,55 @@
+.datetime-widget {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	text-align: center;
+}
+
+.datetime-time {
+	font-size: clamp(2.5rem, 8vw, 4rem);
+	font-weight: 700;
+	color: var(--color-text-primary);
+	opacity: 0.85;
+	margin: 0;
+	line-height: 1;
+}
+
+.datetime-date {
+	font-size: clamp(1rem, 3vw, 1.25rem);
+	color: var(--color-text-secondary);
+	opacity: 0.8;
+	margin: 0;
+}
+
+.timezone-select-container {
+	position: relative;
+	width: 220px;
+}
+
+.timezone-input {
+	background: var(--color-bg-card-hover);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-badge);
+	color: var(--color-text-primary);
+	font-family: var(--font-main);
+	font-size: 0.8rem;
+	height: 32px;
+	padding: 0 10px;
+	text-align: center;
+	text-align-last: center;
+	width: 100%;
+	outline: none;
+	transition: border-color var(--transition-smooth);
+	cursor: pointer;
+}
+
+.timezone-input:focus {
+	border-color: var(--color-primary);
+}
+
+.timezone-input option {
+	background: #23262b;
+	color: #fcfcfc;
+}

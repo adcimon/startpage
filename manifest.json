@@ -1,0 +1,28 @@
+{
+	"short_name": "Startpage",
+	"name": "Personal Startpage",
+	"description": "A sleek, modern developer startpage with custom clock, timezone, search, and bookmarks.",
+	"icons": [
+		{
+			"src": "assets/images/favicons/favicon.ico",
+			"sizes": "64x64 32x32 24x24 16x16",
+			"type": "image/x-icon"
+		},
+		{
+			"src": "assets/images/icon-192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "assets/images/icon-512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
+	"start_url": "./index.html",
+	"scope": ".",
+	"display": "standalone",
+	"orientation": "any",
+	"theme_color": "#1d1e24",
+	"background_color": "#1d1e24"
+}
