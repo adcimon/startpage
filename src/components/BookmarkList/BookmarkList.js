@@ -30,26 +30,47 @@ export function BookmarkList() {
 		};
 	}, []);
 
+	// Group bookmarks by category
+	const categories = Bookmarks.reduce((acc, curr) => {
+		if (!acc[curr.category]) {
+			acc[curr.category] = [];
+		}
+		acc[curr.category].push(curr);
+		return acc;
+	}, {});
+
 	return html`
 		<div class="bookmarks-container">
 			<div class="swiper bookmarks-swiper">
 				<div class="swiper-wrapper">
-					${Bookmarks.map(
-						(bookmark, index) => html`
+					${Object.entries(categories).map(
+						([categoryName, items]) => html`
 							<div
-								key=${index}
+								key=${categoryName}
 								class="swiper-slide">
-								<a
-									href=${bookmark.url || window.location.href}
-									target=${bookmark.url ? '_self' : '_blank'}
-									class="bookmark-button"
-									style=${{ backgroundColor: bookmark.background }}
-									title=${bookmark.name}>
-									<img
-										src=${bookmark.icon}
-										class="bookmark-icon"
-										alt=${bookmark.name} />
-								</a>
+								<div class="category-card">
+									<h4 class="category-header">${categoryName}</h4>
+									<div class="category-links">
+										${items.map(
+											(item, itemIdx) => html`
+												<a
+													key=${itemIdx}
+													href=${item.url || window.location.href}
+													target=${item.url ? '_self' : '_blank'}
+													class="category-link">
+													<div class="link-left">
+														<img
+															src=${item.icon}
+															class="link-icon"
+															alt=${item.name} />
+														<span class="link-name">${item.name}</span>
+													</div>
+													<span class="link-trigger">${item.trigger}</span>
+												</a>
+											`,
+										)}
+									</div>
+								</div>
 							</div>
 						`,
 					)}

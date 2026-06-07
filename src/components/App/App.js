@@ -2,6 +2,7 @@ import { html } from '../../html.js';
 import { DatetimeWidget } from '../DatetimeWidget/DatetimeWidget.js';
 import { SearchField } from '../SearchField/SearchField.js';
 import { BookmarkList } from '../BookmarkList/BookmarkList.js';
+import { Bookmarks } from '../BookmarkList/bookmarks.js';
 
 export function App() {
 	const [theme, setTheme] = React.useState(localStorage.getItem('theme') || 'dark');
@@ -29,8 +30,22 @@ export function App() {
 	};
 
 	const handleSearch = (query) => {
-		const searchUrl = 'https://www.google.com/search?q=';
-		window.location.href = searchUrl + encodeURIComponent(query);
+		const trimmed = query.trim().toLowerCase();
+		const matchedBookmark = Bookmarks.find((b) => b.trigger && b.trigger.toLowerCase() === trimmed);
+
+		if (matchedBookmark) {
+			if (matchedBookmark.url) {
+				window.location.href = matchedBookmark.url;
+				return false;
+			} else {
+				window.open(window.location.href, '_blank');
+				return true;
+			}
+		} else {
+			const searchUrl = 'https://www.google.com/search?q=';
+			window.location.href = searchUrl + encodeURIComponent(query);
+			return false;
+		}
 	};
 
 	return html`

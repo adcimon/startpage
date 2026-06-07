@@ -4,6 +4,12 @@
 	padding: 0 40px;
 }
 
+@media only screen and (max-width: 575.98px) {
+	.bookmarks-container {
+		padding: 0 30px;
+	}
+}
+
 .swiper {
 	width: 100%;
 	height: auto;
@@ -13,12 +19,12 @@
 .swiper-slide {
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: stretch; /* Stretch cards to equal height in the slider */
 }
 
 @media (min-width: 576px) {
 	.swiper-slide {
-		width: 176px !important;
+		width: 260px !important;
 	}
 }
 
@@ -28,42 +34,96 @@
 	}
 }
 
-.bookmark-button {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+/* Category Card Layout */
+.category-card {
+	background-color: var(--color-bg-card);
+	border: 1px solid var(--color-border);
 	border-radius: var(--radius-card-sm);
-	height: 120px;
-	width: 176px;
+	padding: 18px;
+	width: 100%;
+	min-height: 200px;
+	box-shadow: var(--shadow-card);
 	transition:
-		transform var(--transition-smooth),
+		border-color var(--transition-smooth),
 		box-shadow var(--transition-smooth);
-	text-decoration: none !important;
+	display: flex;
+	flex-direction: column;
 }
 
-.bookmark-button:hover {
-	transform: translateY(-3px) scale(1.05);
+.category-card:hover {
+	border-color: var(--color-border-hover);
 	box-shadow: var(--shadow-card-hover);
 }
 
-@media only screen and (max-width: 768px) {
-	.bookmark-button {
-		height: 150px;
-		width: 240px;
-	}
+.category-header {
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: var(--color-primary);
+	letter-spacing: 1px;
+	margin-bottom: 12px;
+	border-bottom: 1px solid var(--color-bg-border-box);
+	padding-bottom: 6px;
 }
 
-.bookmark-icon {
-	width: 50px;
-	height: 50px;
+.category-links {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	flex-grow: 1;
+}
+
+.category-link {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 6px 8px;
+	border-radius: 6px;
+	transition:
+		background var(--transition-smooth),
+		color var(--transition-smooth);
+	text-decoration: none !important;
+	color: var(--color-text-secondary);
+}
+
+.category-link:hover {
+	background: var(--color-bg-case-item-hover);
+	color: var(--color-text-primary);
+}
+
+.link-left {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.link-icon {
+	width: 18px;
+	height: 18px;
 	object-fit: contain;
 }
 
-@media only screen and (max-width: 768px) {
-	.bookmark-icon {
-		width: 70px;
-		height: 70px;
-	}
+.link-name {
+	font-size: 0.85rem;
+	font-weight: 500;
+}
+
+.link-trigger {
+	font-family: monospace;
+	font-size: 0.7rem;
+	color: var(--color-text-muted);
+	border: 1px solid var(--color-border);
+	border-radius: 4px;
+	padding: 1px 5px;
+	background: var(--color-bg-case-item);
+	transition:
+		color var(--transition-smooth),
+		border-color var(--transition-smooth);
+}
+
+.category-link:hover .link-trigger {
+	color: var(--color-primary);
+	border-color: var(--color-primary);
 }
 
 /* Customize Swiper Navigation Arrows */
@@ -72,11 +132,12 @@
 	color: var(--color-primary) !important;
 	width: 24px;
 	height: 24px;
+	top: calc(50% - 12px) !important;
 }
 
 .swiper-button-prev::after,
 .swiper-button-next::after {
-	font-size: 1.25rem !important;
+	font-size: 1.1rem !important;
 	font-weight: bold;
 }
 
