@@ -55,4 +55,25 @@ export const Bookmarks = [
 		category: 'Entertainment',
 		trigger: '/yt',
 	},
+	{
+		name: 'Reddit',
+		icon: 'assets/images/icons/reddit.svg',
+		url: 'https://www.reddit.com/',
+		category: 'Entertainment',
+		trigger: '/r',
+	},
+	{
+		name: 'WhatsApp',
+		icon: 'assets/images/icons/whatsapp.svg',
+		url: 'https://web.whatsapp.com/',
+		category: 'Social',
+		trigger: '/wa',
+	},
+	{
+		name: 'Telegram',
+		icon: 'assets/images/icons/telegram.svg',
+		url: 'https://web.telegram.org/',
+		category: 'Social',
+		trigger: '/tele',
+	},
 ];
