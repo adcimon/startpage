@@ -34,7 +34,7 @@ main {
 	background: var(--color-bg-card-hover);
 	border: 1px solid var(--color-border);
 	border-radius: 50%;
-	box-shadow: var(--shadow-card-hover);
+	box-shadow: var(--shadow-button);
 	color: var(--color-text-primary);
 	cursor: pointer;
 	display: flex;
@@ -52,6 +52,7 @@ main {
 }
 .theme-toggle:hover {
 	border-color: var(--color-border-hover);
+	box-shadow: var(--shadow-button-hover);
 	transform: scale(1.1);
 }
 .theme-toggle i {

@@ -31,10 +31,10 @@ export function App() {
 
 	const handleSearch = (query, openInNewTab = false) => {
 		const trimmed = query.trim().toLowerCase();
-		const matchedBookmark = Bookmarks.find((b) => b.trigger && b.trigger.toLowerCase() === trimmed);
+		const matchedBookmark = Bookmarks.find((b) => b.command && b.command.toLowerCase() === trimmed);
 
 		if (matchedBookmark) {
-			if (matchedBookmark.trigger === '/exit') {
+			if (matchedBookmark.command === '/exit') {
 				window.close();
 				return true;
 			} else if (matchedBookmark.url) {

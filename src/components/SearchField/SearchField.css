@@ -17,7 +17,7 @@
 
 .search-input-wrapper:focus-within {
 	border-color: var(--color-primary);
-	box-shadow: 0 0 10px rgba(13, 134, 255, 0.2);
+	box-shadow: var(--shadow-input-focus);
 }
 
 .search-icon-left {

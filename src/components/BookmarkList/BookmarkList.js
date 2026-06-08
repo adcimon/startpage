@@ -84,7 +84,7 @@ export function BookmarkList() {
 									<div class="category-links">
 										${items.map((item, index) => {
 											const handleClick = (event) => {
-												if (item.trigger === '/exit') {
+												if (item.command === '/exit') {
 													event.preventDefault();
 													window.close();
 												}
@@ -103,7 +103,7 @@ export function BookmarkList() {
 															alt=${item.name} />
 														<span class="link-name">${item.name}</span>
 													</div>
-													<span class="link-trigger">${item.trigger}</span>
+													<span class="link-command">${item.command}</span>
 												</a>
 											`;
 										})}

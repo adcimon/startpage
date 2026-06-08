@@ -11,15 +11,17 @@
 }
 
 .swiper {
-	width: 100%;
+	width: auto !important;
 	height: auto;
-	padding: 10px 0 35px 0 !important;
+	padding: 0 15px 25px 15px !important;
+	margin: 0 -15px 0 -15px !important;
 }
 
 .swiper-slide {
 	display: flex;
 	justify-content: center;
 	align-items: stretch; /* Stretch cards to equal height in the slider */
+	padding: 15px 0; /* Make room for vertical box-shadows to prevent clipping */
 }
 
 @media (min-width: 576px) {
@@ -109,7 +111,7 @@
 	white-space: nowrap; /* Keep name in 1 line */
 }
 
-.link-trigger {
+.link-command {
 	font-family: monospace;
 	font-size: 0.7rem;
 	color: var(--color-text-muted);
@@ -122,7 +124,7 @@
 		border-color var(--transition-smooth);
 }
 
-.category-link:hover .link-trigger {
+.category-link:hover .link-command {
 	color: var(--color-primary);
 	border-color: var(--color-primary);
 }
