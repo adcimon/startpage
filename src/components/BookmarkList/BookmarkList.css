@@ -164,3 +164,16 @@
 	background: var(--color-primary) !important;
 	opacity: 1 !important;
 }
+
+/* Icon theme contrast corrections */
+.theme-dark .link-icon[src$="close.svg"] {
+	filter: invert(1);
+}
+
+.theme-light .link-icon[src$="github.svg"] {
+	filter: invert(1);
+}
+
+.theme-dark .link-icon[src$="amazon.svg"] {
+	filter: invert(1) hue-rotate(180deg);
+}
