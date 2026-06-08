@@ -60,7 +60,7 @@ export function SearchField({ onSearch }) {
 		<div class="search-field">
 			<div class="search-input-wrapper">
 				<span class="search-icon-left">
-					<i class="icon-search"></i>
+					<i class="bi bi-search"></i>
 				</span>
 				<input
 					ref=${inputRef}
@@ -76,7 +76,7 @@ export function SearchField({ onSearch }) {
 							<button
 								class="search-clear-button"
 								onClick=${handleClear}>
-								<i class="icon-x"></i>
+								<i class="bi bi-x-lg"></i>
 							</button>
 						`
 					: null}

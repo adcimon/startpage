@@ -64,7 +64,7 @@ export function App() {
 			<button
 				class="theme-toggle"
 				onClick=${toggleTheme}>
-				<i class=${theme === 'light' ? 'icon-moon' : 'icon-sun'}></i>
+				<i class=${theme === 'light' ? 'bi bi-moon' : 'bi bi-sun'}></i>
 			</button>
 
 			<div class="w-100 d-flex flex-column align-items-center justify-content-center min-vh-100 py-5">
