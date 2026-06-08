@@ -16,8 +16,8 @@ h6 {
 }
 @media only screen and (max-width: 576px) {
 	.title--h1 {
-		margin-bottom: 1rem;
-	}
+	margin-bottom: 1rem;
+}
 }
 
 .title--h2 {
@@ -53,9 +53,9 @@ h6 {
 }
 @media only screen and (max-width: 576px) {
 	.title-icon {
-		height: 1.5625rem;
-		width: 1.875rem;
-	}
+	height: 1.5625rem;
+	width: 1.875rem;
+}
 }
 
 .overhead {

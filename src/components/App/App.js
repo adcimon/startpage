@@ -1,25 +1,28 @@
 import { html } from '../../html.js';
 import { DatetimeWidget } from '../DatetimeWidget/DatetimeWidget.js';
 import { SearchField } from '../SearchField/SearchField.js';
-import { BookmarkList } from '../BookmarkList/BookmarkList.js';
+import { Sidebar } from '../Sidebar/Sidebar.js';
+import { ThemeToggle } from '../ThemeToggle/ThemeToggle.js';
+import { MenuButton } from '../MenuButton/MenuButton.js';
 import { Bookmarks } from '../BookmarkList/bookmarks.js';
 
 export function App() {
 	const [theme, setTheme] = React.useState(localStorage.getItem('theme') || 'dark');
+	const [sidebarOpen, setSidebarOpen] = React.useState(false);
 
 	React.useEffect(() => {
-		let metaThemeColor = document.querySelector('meta[name="theme-color"]');
-		if (!metaThemeColor) {
-			metaThemeColor = document.createElement('meta');
-			metaThemeColor.name = 'theme-color';
-			document.head.appendChild(metaThemeColor);
+		let themeColor = document.querySelector('meta[name="theme-color"]');
+		if (!themeColor) {
+			themeColor = document.createElement('meta');
+			themeColor.name = 'theme-color';
+			document.head.appendChild(themeColor);
 		}
 
 		document.body.className = theme === 'light' ? 'theme-light' : 'theme-dark';
 
-		const bodyBgColor = getComputedStyle(document.body).getPropertyValue('--color-bg-body').trim();
-		if (bodyBgColor) {
-			metaThemeColor.content = bodyBgColor;
+		const backgroundColor = getComputedStyle(document.body).getPropertyValue('--color-bg-body').trim();
+		if (backgroundColor) {
+			themeColor.content = backgroundColor;
 		}
 
 		localStorage.setItem('theme', theme);
@@ -60,30 +63,27 @@ export function App() {
 	};
 
 	return html`
-		<main>
-			<button
-				class="theme-toggle"
-				onClick=${toggleTheme}>
-				<i class=${theme === 'light' ? 'bi bi-moon' : 'bi bi-sun'}></i>
-			</button>
-
-			<div class="w-100 d-flex flex-column align-items-center justify-content-center min-vh-100 py-5">
-				<div class="content d-flex flex-column align-items-center gap-5 w-100">
-					<div class="col-11 col-sm-8 col-md-6 col-lg-5 position-relative p-0">
+		<div class="main-container ${sidebarOpen ? 'sidebar-open' : ''}">
+			<${MenuButton} onClick=${() => setSidebarOpen(true)} />
+			<${ThemeToggle}
+				theme=${theme}
+				onToggle=${toggleTheme} />
+			<${Sidebar}
+				title="Bookmarks"
+				open=${sidebarOpen}
+				onClose=${() => setSidebarOpen(false)} />
+			<main class="main-content">
+				<div class="main-content-inner">
+					<div class="col-12 text-center">
 						<${DatetimeWidget} />
 					</div>
 					<div
-						class="col-11 col-sm-8 col-md-6 col-lg-5 position-relative p-0"
-						style=${{
-							maxWidth: '500px',
-						}}>
+						class="col-12 d-flex justify-content-center"
+						style=${{ maxWidth: '500px', width: '100%' }}>
 						<${SearchField} onSearch=${handleSearch} />
 					</div>
-					<div class="col-12 position-relative p-0">
-						<${BookmarkList} />
-					</div>
 				</div>
-			</div>
-		</main>
+			</main>
+		</div>
 	`;
 }

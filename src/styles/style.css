@@ -3,6 +3,9 @@
 @import url(typography.css);
 
 @import url(../components/App/App.css);
+@import url(../components/Sidebar/Sidebar.css);
+@import url(../components/ThemeToggle/ThemeToggle.css);
+@import url(../components/MenuButton/MenuButton.css);
 @import url(../components/DatetimeWidget/DatetimeWidget.css);
 @import url(../components/SearchField/SearchField.css);
 @import url(../components/BookmarkList/BookmarkList.css);

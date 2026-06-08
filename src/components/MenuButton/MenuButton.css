@@ -1,0 +1,38 @@
+.menu-button {
+	align-items: center;
+	backdrop-filter: blur(12px);
+	background: var(--color-bg-card-hover);
+	border: 1px solid var(--color-border);
+	border-radius: 50%;
+	box-shadow: var(--shadow-button);
+	color: var(--color-text-primary);
+	cursor: pointer;
+	display: none;
+	height: 2.25rem;
+	justify-content: center;
+	left: 1.5rem;
+	outline: none;
+	padding: 0;
+	position: absolute;
+	top: 1.5rem;
+	transition: all var(--transition-smooth);
+	width: 2.25rem;
+	z-index: 10;
+	-webkit-backdrop-filter: blur(12px);
+}
+
+.menu-button:hover {
+	border-color: var(--color-border-hover);
+	box-shadow: var(--shadow-button-hover);
+	transform: scale(1.1);
+}
+
+.menu-button i {
+	font-size: 1.2rem;
+}
+
+@media only screen and (max-width: 991.98px) {
+	.menu-button {
+		display: flex;
+	}
+}

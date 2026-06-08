@@ -45,14 +45,13 @@ body {
 	line-height: 1.7;
 	min-height: 100vh;
 	overflow-x: hidden;
-	transition:
-		background-color var(--transition-smooth),
+	transition: background-color var(--transition-smooth),
 		color var(--transition-smooth);
 }
 @media only screen and (max-width: 576px) {
 	body {
-		line-height: 1.6;
-	}
+	line-height: 1.6;
+}
 }
 
 footer {
@@ -90,16 +89,17 @@ iframe {
 
 .cover {
 	border-radius: 0.375rem;
-	font-family: 'object-fit: cover; object-position: center;';
+	font-family: 'object-fit: cover;
 	height: 100%;
 	object-fit: cover;
+	object-position: center;
 	object-position: center;
 	width: 100%;
 }
 @media only screen and (max-width: 576px) {
 	.cover {
-		border-radius: 0.25rem;
-	}
+	border-radius: 0.25rem;
+}
 }
 
 .stack-badge {
@@ -114,12 +114,12 @@ iframe {
 
 @media (min-width: 1400px) {
 	.container {
-		max-width: 1140px;
-	}
+	max-width: 1140px;
+}
 }
 
 @media only screen and (max-width: 992px) {
 	body {
-		padding-bottom: 80px;
-	}
+	padding-bottom: 80px;
+}
 }

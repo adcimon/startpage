@@ -4,26 +4,15 @@ import { Bookmarks } from './bookmarks.js';
 export function BookmarkList() {
 	React.useEffect(() => {
 		const swiperInstance = new Swiper('.bookmarks-swiper', {
-			slidesPerView: 1,
-			spaceBetween: 12,
+			direction: 'vertical',
+			slidesPerView: 'auto',
+			spaceBetween: 16,
 			grabCursor: true,
 			watchOverflow: true,
-			mousewheel: {
-				releaseOnEdges: false,
-			},
-			pagination: {
-				el: '.swiper-pagination',
-				clickable: true,
-			},
+			mousewheel: true,
 			navigation: {
 				nextEl: '.swiper-button-next',
 				prevEl: '.swiper-button-prev',
-			},
-			breakpoints: {
-				576: {
-					slidesPerView: 'auto',
-					spaceBetween: 16,
-				},
 			},
 		});
 
@@ -37,8 +26,8 @@ export function BookmarkList() {
 				e.preventDefault();
 
 				const rect = swiperInstance.el.getBoundingClientRect();
-				const clickX = e.clientX - rect.left;
-				if (clickX < rect.width / 2) {
+				const clickY = e.clientY - rect.top;
+				if (clickY < rect.height / 2) {
 					swiperInstance.slidePrev();
 				} else {
 					swiperInstance.slideNext();
@@ -113,10 +102,13 @@ export function BookmarkList() {
 						`,
 					)}
 				</div>
-				<div class="swiper-pagination"></div>
 			</div>
-			<div class="swiper-button-prev"></div>
-			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev">
+				<i class="bi bi-chevron-up"></i>
+			</div>
+			<div class="swiper-button-next">
+				<i class="bi bi-chevron-down"></i>
+			</div>
 		</div>
 	`;
 }
