@@ -39,17 +39,14 @@ export function App() {
 		if (matchedBookmark) {
 			if (matchedBookmark.command === '/exit') {
 				window.close();
-				return true;
 			} else if (matchedBookmark.url) {
 				if (openInNewTab) {
 					window.open(matchedBookmark.url, '_blank');
 				} else {
 					window.location.href = matchedBookmark.url;
 				}
-				return false;
 			} else {
 				window.open(window.location.href, '_blank');
-				return true;
 			}
 		} else {
 			const searchUrl = 'https://www.google.com/search?q=';
@@ -58,7 +55,6 @@ export function App() {
 			} else {
 				window.location.href = searchUrl + encodeURIComponent(query);
 			}
-			return false;
 		}
 	};
 
@@ -79,7 +75,7 @@ export function App() {
 					</div>
 					<div
 						class="col-12 d-flex justify-content-center"
-						style=${{ maxWidth: '500px', width: '100%' }}>
+						style=${{ maxWidth: '550px', width: '100%' }}>
 						<${SearchField} onSearch=${handleSearch} />
 					</div>
 				</div>
