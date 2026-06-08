@@ -75,7 +75,10 @@ export function App() {
 					</div>
 					<div
 						class="col-12 d-flex justify-content-center"
-						style=${{ maxWidth: '550px', width: '100%' }}>
+						style=${{
+							maxWidth: '550px',
+							width: '100%',
+						}}>
 						<${SearchField} onSearch=${handleSearch} />
 					</div>
 				</div>

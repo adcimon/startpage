@@ -1,6 +1,7 @@
 .main-container {
 	display: flex;
 	min-height: 100vh;
+	min-height: 100dvh;
 	overflow-x: hidden;
 	position: relative;
 	width: 100%;
@@ -12,6 +13,7 @@
 	flex: 1;
 	justify-content: center;
 	min-height: 100vh;
+	min-height: 100dvh;
 	padding: 3rem 1.5rem;
 	position: relative;
 }
@@ -29,6 +31,6 @@
 
 @media only screen and (max-width: 991.98px) {
 	.main-content {
-		padding: 6rem 1.5rem 3rem 1.5rem;
+		padding: 4.5rem 1.5rem;
 	}
 }

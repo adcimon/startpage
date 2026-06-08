@@ -7,6 +7,7 @@ export function BookmarkList() {
 			direction: 'vertical',
 			slidesPerView: 'auto',
 			spaceBetween: 16,
+			slidesOffsetAfter: 48,
 			grabCursor: true,
 			watchOverflow: true,
 			mousewheel: true,

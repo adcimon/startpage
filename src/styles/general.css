@@ -89,10 +89,9 @@ iframe {
 
 .cover {
 	border-radius: 0.375rem;
-	font-family: 'object-fit: cover;
+	font-family: 'object-fit: cover';
 	height: 100%;
 	object-fit: cover;
-	object-position: center;
 	object-position: center;
 	width: 100%;
 }
@@ -118,8 +117,4 @@ iframe {
 }
 }
 
-@media only screen and (max-width: 992px) {
-	body {
-	padding-bottom: 80px;
-}
-}
+
